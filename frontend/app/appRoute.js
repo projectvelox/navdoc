@@ -67,10 +67,10 @@ angular.module('appRoute', ['ngRoute'])
             })
             
             .when('/user/profile', {
-                templateUrl: 'app/pages/user/profile.html'
-                //,
-                //controller: '',
-                //controllerAs: ''
+                templateUrl: 'app/pages/user/profile.html',
+                controller: 'userProfileCtrl',
+                controllerAs: 'userProfile',
+                allowedUsers: ['user']
             })
 
             .when('/user/transaction-logs', {

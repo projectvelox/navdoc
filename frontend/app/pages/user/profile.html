@@ -1,172 +1,166 @@
 <style type="text/css">
-.well { border-radius: 0px; }
-.btn-pref .btn { -webkit-border-radius:0 !important; }
-.card-avatar img { border-radius: 100%; height: 150px; }
-.card-btn:hover, .card-btn:active, .card-btn:focus { border: 1px solid #002544 !important; background-color: #002544 !important; color: #fff !important;}
-.card-background { background-image: url(assets/images/sliders/3.jpg);  background-position: 50% 50%; }
-.card-info { color: #fff; font-size: 18px; background-color: rgba(0, 37, 68, 0.67); margin-top: 10px; padding: 0px 10px;}
-.d-flex { display: flex; width: 100%; justify-content: center; align-items: center; }
+    .well { border-radius: 0px; }
+    .btn-pref .btn { -webkit-border-radius:0 !important; }
+    .card-avatar img { border-radius: 100%; height: 150px; }
+    .card-btn:hover, .card-btn:active, .card-btn:focus { border: 1px solid #002544 !important; background-color: #002544 !important; color: #fff !important;}
+    .card-background { background-image: url(assets/images/sliders/3.jpg);  background-position: 50% 50%; }
+    .card-info { color: #fff; font-size: 18px; background-color: rgba(0, 37, 68, 0.67); margin-top: 10px; padding: 0px 10px;}
+    .d-flex { display: flex; width: 100%; justify-content: center; align-items: center; }
 </style>
-<div class="card-background">
-    <div class="d-flex" style="height: 350px;">
-        <div style="text-align: center;">
-	        <div class="card-avatar" >
-	            <img src="assets/images/users/sample.png">
-	        </div>
-	        <div class="card-info"> 
-	        	<span class="card-title">{{main.user.username}}</span>
-	        </div>
+
+<div class="p-5" ng-show="userProfile.loading">
+    <div class="wrap-loading">
+        <div class="loading loading-3"></div>
+    </div>
+</div>
+
+<div ng-hide="userProfile.loading">
+    <div class="card-background">
+        <div class="d-flex" style="height: 350px;">
+            <div style="text-align: center;">
+                <div class="card-avatar" >
+                    <img src="assets/images/users/sample.png">
+                </div>
+                <div class="card-info">
+                    <span class="card-title">{{userProfile.profile.username}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
+            <div class="btn-group" role="group">
+                <button type="button" id="stars" class="btn btn-default card-btn" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    <div class="hidden-xs">About</div>
+                </button>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" id="favorites" class="btn btn-default card-btn" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>
+                    <div class="hidden-xs">Pending Appointments</div>
+                </button>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" id="following" class="btn btn-default card-btn" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                    <div class="hidden-xs">Upcoming Appointments</div>
+                </button>
+            </div>
+        </div>
+
+        <div class="well">
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="tab1">
+                    <div class="text-center pb-3">
+                        <h2>Personal Information</h2>
+                        <small>Information that is regarding the user is displayed in this context</small>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tr>
+                                        <td><strong>Full Name</strong></td>
+                                        <td>{{userProfile.profile.username}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Birthday</strong></td>
+                                        <td><a href="#">{{userProfile.profile.birthday}}</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Address</strong></td>
+                                        <td><a href ="#" >{{userProfile.profile.address}}</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Gender</strong></td>
+                                        <td>{{userProfile.profile.gender}}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tr>
+                                        <td><strong>Email Address</strong></td>
+                                        <td>{{userProfile.profile.email}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Contact</strong></td>
+                                        <td>{{userProfile.profile.phone_number}}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade in" id="tab2">
+                    <div class="text-center pb-3">
+                        <h2>Pending Appointments</h2>
+                        <small>Displayed Here are your pending appointments</small>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-8">
+                            <div class="table-responsive" ng-show="userProfile.pendingAppointments.length > 0">
+                                <table class="table">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Clinic</th>
+                                        <th>Doctor</th>
+                                        <th>Appointment Date</th>
+                                    </tr>
+                                    <tr ng-repeat="appointment in userProfile.pendingAppointments track by $index">
+                                        <td>{{($index + 1)}}</td>
+                                        <td><a href="#/clinic-profile/1">Happy Clinic</a></td>
+                                        <td><a href="#/user/doctor-profile/2">Dr. Ariessa Lane Chua Ko</a></td>
+                                        <td>September 18, 2017</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <p class="text-center" ng-hide="userProfile.pendingAppointments.length > 0">No Pending Appointments</p>
+                        </div>
+                        <div class="col-xs-12 col-md-4">
+                            <div class="doctor-bordify doctor-bg-white text-center" style="border: 1px solid #d2d2d2; margin-top: 0px; padding: 10px;">
+                                <h2>Appointments</h2>
+                                <small>(Number of Pending Appointments)</small>
+                                <h1>{{userProfile.pendingAppointments.length}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade in" id="tab3">
+                    <div class="text-center pb-3">
+                        <h2>Upcoming Appointments</h2>
+                        <small>Displayed Here are your upcoming appointments</small>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-8">
+                            <div class="table-responsive" ng-show="userProfile.doneAppointments.length > 0">
+                                <table class="table">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Clinic</th>
+                                        <th>Doctor</th>
+                                        <th>Appointment Date</th>
+                                    </tr>
+                                    <tr ng-repeat="appointment in userProfile.doneAppointments track by $index">
+                                        <td>{{($index + 1)}}</td>
+                                        <td><a href="#/clinic-profile/1">Happy Clinic</a></td>
+                                        <td><a href="#/user/doctor-profile/2">Dr. Ariessa Lane Chua Ko</a></td>
+                                        <td>September 18, 2017</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <p class="text-center" ng-hide="userProfile.doneAppointments.length > 0">No Appointment History</p>
+                        </div>
+                        <div class="col-xs-12 col-md-4">
+                            <div class="doctor-bordify doctor-bg-white text-center" style="border: 1px solid #d2d2d2; margin-top: 0px; padding: 10px;">
+                                <h2>Appointments</h2>
+                                <small>(Number of Appointments)</small>
+                                <h1>{{userProfile.doneAppointments.length}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
-        <div class="btn-group" role="group">
-            <button type="button" id="stars" class="btn btn-default card-btn" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                <div class="hidden-xs">About</div>
-            </button>
-        </div>
-        <div class="btn-group" role="group">
-            <button type="button" id="favorites" class="btn btn-default card-btn" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>
-            	<div class="hidden-xs">Pending Appointments</div>
-            </button>
-        </div>
-        <div class="btn-group" role="group">
-	        <button type="button" id="following" class="btn btn-default card-btn" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                <div class="hidden-xs">Upcoming Appointments</div>
-            </button>
-        </div>
-    </div>
-
-    <div class="well">
-	    <div class="tab-content">
-	        <div class="tab-pane fade in active" id="tab1">
-	        	<div class="text-center pb-3">
-	        		<h2>Personal Information</h2>
-	        		<small>Information that is regarding the user is displayed in this context</small>
-	        	</div>
-	        	<div class="row">
-					<div class="col-md-6">
-						<div class="table-responsive">
-						  	<table class="table">
-							    <tr>      
-							        <td><strong>First Name</strong></td>
-							        <td>John</td> 
-							    </tr>
-							    <tr>    
-									<td><strong>Middle Name</strong></td>
-									<td>Rengar</td>       
-								</tr>
-								<tr>    
-									<td><strong>Last Name</strong></td>
-									<td>Doe</td>       
-								</tr>
-								<tr>    
-									<td><strong>Birthday</strong></td>
-									<td><a href="#">Add Birthdate</a></td>       
-								</tr>
-								<tr>    
-									<td><strong>Address</strong></td>
-									<td><a href ="#" >Add Address</a></td>       
-								</tr>
-								<tr>
-									<td><strong>Gender</strong></td>
-									<td><a href ="#">Add Gender</a></td> 
-								</tr>
-						  	</table>
-					 	</div>
-					</div>
-					<div class="col-md-6">
-						<div class="table-responsive">
-						  	<table class="table">
-						     	<tr>  
-						        	<td><strong>Email Address</strong></td>
-						        	<td>johnDoe@gmail.com</td> 
-						     	</tr>
-						     	<tr>    
-						        	<td><strong>Mobile</strong></td>
-						        	<td><a href="#">Add Mobile Number</a></td>       
-						     	</tr>
-						     	<tr>    
-						        	<td><strong>Phone</strong></td>
-						        	<td><a href="#">Add Phone Number</a></td>       
-						    	</tr>
-							    <tr>
-							        <td><strong>Affiliation</strong></td>
-							        <td><a href="#"> Add Affiliation</a></td> 
-							    </tr>
-						  	</table>
-						</div>
-					</div>
-				</div>
-	        </div>
-	        <div class="tab-pane fade in" id="tab2">
-	          	<div class="text-center pb-3">
-	        		<h2>Pending Appointments</h2>
-	        		<small>Displayed Here are your pending appointments</small>
-	        	</div>
-	        	<div class="row">
-	        		<div class="col-xs-12 col-md-8">
-	        			<div class="table-responsive">
-							<table class="table">
-								<tr>
-									<th>#</th>
-									<th>Clinic</th>
-									<th>Doctor</th>
-									<th>Appointment Date</th>
-								</tr>
-								<tr ng-repeat="d in [1,2,3] track by $index">
-									<td>{{($index + 1)}}</td>
-									<td><a href="#/clinic-profile/1">Happy Clinic</a></td>
-									<td><a href="#/user/doctor-profile/2">Dr. Ariessa Lane Chua Ko</a></td>
-									<td>September 18, 2017</td>
-								</tr>
-							</table>
-						</div>
-	        		</div>
-	        		<div class="col-xs-12 col-md-4">
-	        			<div class="doctor-bordify doctor-bg-white text-center" style="border: 1px solid #d2d2d2; margin-top: 0px; padding: 10px;">
-	        				<h2>Appointments</h2>
-	        				<small>(Number of Pending Appointments)</small>
-	        				<h1>3</h1>
-	        			</div>
-	        		</div>
-	        	</div>
-	        </div>
-	        <div class="tab-pane fade in" id="tab3">
-	          	<div class="text-center pb-3">
-	        		<h2>Upcoming Appointments</h2>
-	        		<small>Displayed Here are your upcoming appointments</small>
-	        	</div>
-	        	<div class="row">
-	        		<div class="col-xs-12 col-md-8">
-	        			<div class="table-responsive">
-							<table class="table">
-								<tr>
-									<th>#</th>
-									<th>Clinic</th>
-									<th>Doctor</th>
-									<th>Appointment Date</th>
-								</tr>
-								<tr ng-repeat="d in [1,2,3] track by $index">
-									<td>{{($index + 1)}}</td>
-									<td><a href="#/clinic-profile/1">Happy Clinic</a></td>
-									<td><a href="#/user/doctor-profile/2">Dr. Ariessa Lane Chua Ko</a></td>
-									<td>September 18, 2017</td>
-								</tr>
-							</table>
-						</div>
-	        		</div>
-	        		<div class="col-xs-12 col-md-4">
-	        			<div class="doctor-bordify doctor-bg-white text-center" style="border: 1px solid #d2d2d2; margin-top: 0px; padding: 10px;">
-	        				<h2>Appointments</h2>
-	        				<small>(Number of Appointments)</small>
-	        				<h1>3</h1>
-	        			</div>
-	        		</div>
-	        	</div>
-			</div>
-		</div>
-	</div>
-</div>
-
