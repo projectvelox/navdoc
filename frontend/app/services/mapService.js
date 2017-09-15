@@ -1,7 +1,7 @@
 angular.module('mapService', [])
     .factory('mapSv', function () {
         var geolocation = navigator.geolocation;
-        var geocoder = null;
+        //var geocoder = null;
         var directionsService = null;
         var locationWatchID = null;
         var locationWatcher = null;
@@ -235,6 +235,50 @@ angular.module('mapService', [])
                         clearOverlays();
                         renderDirections();
                     };
+                },
+                alertControl: function (options) {
+                    var alertControl = this;
+
+                    //options
+                    options = options || {};
+                    options.map = options.map || {};
+                    options.defaultMessage = options.defaultMessage || '';
+                    options.defaultType = options.defaultType || 'info';
+                    options.position = options.position || 'BOTTOM_CENTER';
+
+                    //elements
+                    this.element = document.createElement('div');
+                    var closeButton = document.createElement('span');
+                    closeButton.style.cursor = 'pointer';
+                    closeButton.style.float = 'right';
+                    closeButton.style.margin = '0 0 0 10px';
+                    closeButton.innerHTML = '&times;';
+                    closeButton.addEventListener('click', function () {
+                        alertControl.hide();
+                    });
+                    var messageSpan = document.createElement('span');
+                    messageSpan.innerHTML = options.defaultMessage;
+
+                    //style
+                    alertControl.element.className = 'alert alert-' + options.defaultType;
+                    alertControl.element.setAttribute('role','alert');
+                    alertControl.element.style.margin = '5px';
+                    alertControl.element.style.display = 'none';
+                    alertControl.element.append(closeButton);
+                    alertControl.element.append(messageSpan);
+
+                    //methods
+                    this.show = function (message, type) {
+                        messageSpan.innerHTML = (message || options.defaultMessage);
+                        alertControl.element.className = 'alert alert-' + (type || options.defaultType);
+                        alertControl.element.style.display = '';
+                    };
+                    this.hide = function () {
+                        alertControl.element.style.display = 'none';
+                    };
+
+                    //set to map
+                    options.map.controls[google.maps.ControlPosition[options.position]].push(alertControl.element);
                 }
             }
         };
