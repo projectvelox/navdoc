@@ -3,6 +3,20 @@ angular.module('appRoute', ['ngRoute'])
         $locationProvider.hashPrefix('');
         $routeProvider
 
+            //ADMIN
+            .when('/admin/dashboard', {
+                templateUrl: 'app/pages/admin/dashboard.html'
+                //,
+                //controller: ,
+                //controllerAs: 
+            })
+            .when('/admin/doctor-profile/:id', {
+                templateUrl: 'app/pages/admin/doctor-profile.html'
+                //,
+                //controller: ,
+                //controllerAs: 
+            })
+
             //PUBLIC
             .when('/', {
                 templateUrl: 'app/pages/public/home.html',
