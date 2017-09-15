@@ -30,6 +30,11 @@ angular.module('mainController', [])
                 else if(!main.user) return false;
                 else return next.allowedUsers.indexOf(main.user.account_type) > -1;
             };
+            var resolveUser = function () {
+                
+                //resolve here!
+                $scope.$broadcast('pageValidated', {});
+            };
             if(!next.redirectTo){
                 if(main.pageLoading) event.preventDefault();
                 else {
@@ -44,7 +49,7 @@ angular.module('mainController', [])
                         }).finally(function () {
                             main.pageLoading = false;
                             if (!isAuthorized()) $location.path('/');
-                            $scope.$broadcast('pageValidated', {});
+                            else if (main.user) resolveUser();
                         });
                 }
             }
