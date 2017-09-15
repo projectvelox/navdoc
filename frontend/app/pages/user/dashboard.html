@@ -3,50 +3,17 @@
 </div>
 <div class="container pb-5">
 	<h1 class="pt-3">Dashboard</h1>
-	
 	<hr>
 	<div class="row">
-		<div class="col-xs-12 col-md-5">
-			<div class="doctor-card-container">
-				<a href="#/user/profile">
-				<div class="doctor-icon-container">
-					<img src="assets/images/icons/profiling.png" class="img-responsive center-block">
-					<h4>Profile</h4>
-				</div></a>
-			</div>
-			<div class="doctor-card-container">
-                <a href="#/user/appointment-history">
-                <div class="doctor-icon-container">
-                    <img src="assets/images/icons/appointment-history.png" class="img-responsive center-block">
-                    <h4>Appointment</h4>
-                </div></a>
-        	</div>
-			<div class="doctor-card-container">
-				<a href="#/user/transaction-logs">
-				<div class="doctor-icon-container">
-					<img src="assets/images/icons/statement.png" class="img-responsive center-block">
-					<h4>Transaction</h4>
-				</div></a>
+		<div class="col-xs-12 col-md-6">
+			<div class="list-group">
+			  <a href="#/user/appointments/pending" class="list-group-item">Pending Appointments Request <span class="badge">1</span></a>
+			  <a href="#/user/appointments/upcoming" class="list-group-item">Upcoming Appointments <span class="badge">1</span></a>
+			  <a href="#/user/appointments/history" class="list-group-item">Appointment History <span class="badge">12</span></a>
+			  <a href="#/user/transaction-logs" class="list-group-item">Transaction History <span class="badge">12</span></a>
+			  <a href="#/user/settings" class="list-group-item">Settings</a>
 			</div>
 		</div>
-		<div class="col-xs-12 col-md-7" ng-show="dashboard.clinics.length > 0">
-			<h3>Search Results</h3><hr>
-			<div class="row">
-				<div class="col-xs-12 col-md-6" ng-repeat="clinic in dashboard.clinics track by $index">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-					  		<div class="row"> 
-								<div class="col-xs-10 col-md-10"><strong>{{clinic.name}}</strong></div>
-						  		<div class="col-xs-2 col-md-2"><a href="#/clinic-profile/{{clinic.uid}}"><span class="glyphicon glyphicon-menu-right"></span></a></div>
-					  		</div>					  	
-					  	</div>
-					  	<div class="panel-body">
-					  		<p><strong>Address</strong> {{clinic.address}}</p>
-					  </div>
-					</div>
-				</div>
-			</div>
-        </div>
     </div>
 </div>
 
