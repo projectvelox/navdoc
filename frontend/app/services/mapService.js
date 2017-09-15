@@ -114,7 +114,7 @@ angular.module('mapService', [])
                 },
                 getSpriteIcon: function (name, color, size) {
                     //must be initialized!
-                    var sprite_src = 'assets/images/map/.... image here!';
+                    var sprite_src = 'assets/images/map/sprites-v2-sm.png';
                     var original_image_size = {width: 370, height: 424};
                     var image_count = {x: 5, y: 4};
                     var default_size = 45;
