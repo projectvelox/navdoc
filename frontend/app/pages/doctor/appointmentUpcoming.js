@@ -1,6 +1,7 @@
 angular.module('doctorControllers')
     .controller('doctorAppointmentUpcomingCtrl', function ($location, serverSv) {
         var appointmentUpcoming = this;
+        appointmentUpcoming.loading = false;
         appointmentUpcoming.list = [];
         appointmentUpcoming.convertDate = function (date) {
             return new Date(date);
@@ -29,6 +30,7 @@ angular.module('doctorControllers')
                 });
         };
         appointmentUpcoming.acknowledge = function (index) {
+            var preloader = new Dialog.preloader('Acknowledging Transaction');
             serverSv.request('/appointment/finish/' + appointmentUpcoming.list[index].uid)
                 .then(function (response) {
                     var data = response.data;
@@ -41,7 +43,7 @@ angular.module('doctorControllers')
                 }).catch(function (err) {
                     Dialog.alert('Failed to acknowledge', 'An unknown error occurred');
                 }).finally(function () {
-
+                    preloader.destroy();
                 });
         };
         appointmentUpcoming.init();

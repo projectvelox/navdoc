@@ -1,0 +1,24 @@
+<div class="p-5" ng-show="transactions.loading">
+    <div class="wrap-loading">
+        <div class="loading loading-3"></div>
+    </div>
+</div>
+
+<div class="container pt-3 pb-5" ng-hide="transactions.loading">
+    <h1>Transactions</h1>
+    <hr />
+
+    <div class="row">
+        <div class="col-sm-12 col-lg-6">
+            <div class="list-group">
+                <a href="" class="list-group-item" ng-repeat="transaction in transactions.list track by $index">
+                    <h4>{{transaction.uid}}</h4>
+                    <p><span style="color: gray;">Method</span>: {{transaction.trans_type}} <br />
+                        <span style="color: gray;">Amount</span>: {{transaction.amount}} <br />
+                    </p>
+                </a>
+            </div>
+            <p ng-show="transactions.list.length < 1">No Transactions.</p>
+        </div>
+    </div>
+</div>

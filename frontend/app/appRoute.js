@@ -88,10 +88,9 @@ angular.module('appRoute', ['ngRoute'])
             })
 
             .when('/user/transaction-logs', {
-                templateUrl: 'app/pages/user/transaction-logs.html'
-                //,
-                //controller: '',
-                //controllerAs: ''
+                templateUrl: 'app/pages/user/transaction-logs.html',
+                controller: 'userTransactionLogsCtrl',
+                controllerAs: 'transactions'
             })
 
             .when('/user/clinic-list', {
@@ -110,29 +109,30 @@ angular.module('appRoute', ['ngRoute'])
 
             /*new plan*/
             .when('/user/appointments/pending', {
-                templateUrl: 'app/pages/user/appointments/pending.html'
-                //,
-                //controller: '',
-                //controllerAs: ''
+                templateUrl: 'app/pages/user/appointments/pending.html',
+                controller: 'userPendingAppointmentsCtrl',
+                controllerAs: 'appointments'
             })
+
             .when('/user/appointments/upcoming', {
-                templateUrl: 'app/pages/user/appointments/upcoming.html'
-                //,
-                //controller: '',
-                //controllerAs: ''
+                templateUrl: 'app/pages/user/appointments/upcoming.html',
+                controller: 'userUpcomingAppointmentsCtrl',
+                controllerAs: 'appointments'
             })
+
             .when('/user/appointments/history', {
-                templateUrl: 'app/pages/user/appointments/history.html'
-                //,
-                //controller: '',
-                //controllerAs: ''
+                templateUrl: 'app/pages/user/appointments/history.html',
+                controller: 'userHistoryAppointmentsCtrl',
+                controllerAs: 'appointments'
             })
+
             .when('/user/appointments/profile/:id', {
                 templateUrl: 'app/pages/user/appointments/profile.html'
                 //,
                 //controller: '',
                 //controllerAs: ''
             })
+
             .when('/user/settings', {
                 templateUrl: 'app/pages/user/settings.html'
                 //,
@@ -165,6 +165,12 @@ angular.module('appRoute', ['ngRoute'])
                 templateUrl: 'app/pages/doctor/appointmentHistory.html',
                 controller: 'doctorAppointmentHistoryCtrl',
                 controllerAs: 'appointmentHistory'
+            })
+
+            .when('/doctor/transactions', {
+                templateUrl: 'app/pages/doctor/transactions.html',
+                controller: 'doctorTransactionsCtrl',
+                controllerAs: 'transactions'
             })
 
             .when('/doctor/settings', {
