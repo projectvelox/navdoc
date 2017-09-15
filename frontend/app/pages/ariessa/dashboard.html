@@ -1,0 +1,298 @@
+<div class="container pb-5">
+	<h1 class="pt-3">Dashboard</h1><hr>
+	<div class="row">
+		<div class="col-xs-12 col-md-12">
+    		<div style="margin: 0px auto;">
+            	<div class="doctor-card-container">
+    				<a href="#/users/profile">
+    				<div class="doctor-icon-container">
+    					<img src="assets/images/icons/profiling.png" class="img-responsive center-block">
+    					<hr><h4>Profile</h4>
+    				</div></a>
+    			</div>
+    			<div class="doctor-card-container">
+    				<a href="#/users/profile">
+    				<div class="doctor-icon-container">
+    					<img src="assets/images/icons/create-appointment.png" class="img-responsive center-block">
+    					<hr><h4>Create Appointment</h4>
+    				</div></a>
+    			</div>
+                <div class="doctor-card-container">
+                    <a href="#/users/appointment-history">
+                    <div class="doctor-icon-container">
+                        <img src="assets/images/icons/appointment-history.png" class="img-responsive center-block">
+                        <hr><h4>Appointment History</h4>
+                    </div></a>
+                </div>
+    			<div class="doctor-card-container">
+    				<a href="#/users/transaction-logs">
+    				<div class="doctor-icon-container">
+    					<img src="assets/images/icons/statement.png" class="img-responsive center-block">
+    					<hr><h4>Transaction Logs</h4>
+    				</div></a>
+    			</div>
+            </div>
+		</div>
+    </div>
+</div>
+<div class = "container">
+ <div class="row">
+        <div class="col-lg-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-bar-chart-o fa-fw"></i> Patient Queue
+                    
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div id="morris-area-chart"></div>
+                    <a href="#" class="list-group-item"  style ="color:green">
+                            <i class="fa fa-user-circle fa-fw"></i> Marie Ariessa Lane Ko (will redirect to user profile)
+                            <span class="pull-right text-muted small"><em>Now Serving</em>
+                            </span>
+                    </a>
+                    <a href="#" class="list-group-item"  style ="color:blue">
+                            <i class="fa fa-user-circle fa-fw"></i> Joshua Odocado (will redirect to user profile)
+                            <span class="pull-right text-muted small"><em>Appointment Time: 3:00PM</em>
+                            </span>
+                    </a>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-bar-chart-o fa-fw"></i> Activity Logs
+                    <div class="pull-right">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                Actions
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu pull-right" role="menu">
+                                <li><a href="#">Action</a>
+                                </li>
+                                <li><a href="#">Another action</a>
+                                </li>
+                                <li><a href="#">Something else here</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Date</th>
+                                            <th>Time</th>
+                                            <th>Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>3326</td>
+                                            <td>10/21/2013</td>
+                                            <td>3:29 PM</td>
+                                            <td>$321.33</td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.col-lg-4 (nested) -->
+                        <div class="col-lg-8">
+                            <div id="morris-bar-chart"></div>
+                        </div>
+                        <!-- /.col-lg-8 (nested) -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+</div>
+<div class="col-lg-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-bell fa-fw"></i> Notifications Panel
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item">
+                            <i class="fa fa-comment fa-fw"></i> New Appointment
+                            <span class="pull-right text-muted small"><em>5 minutes ago</em>
+                            </span>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <i class="fa fa-twitter fa-fw"></i> Appointment in 1hr
+                            <span class="pull-right text-muted small"><em>Now</em>
+                            </span>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <i class="fa fa-envelope fa-fw"></i>  User Review
+                            <span class="pull-right text-muted small"><em>8 minutes ago</em>
+                            </span>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <i class="fa fa-tasks fa-fw"></i> Appointment done
+                            <span class="pull-right text-muted small"><em>3 minutes ago</em>
+                            </span>
+                        </a>
+                 
+                    </div>
+                    <!-- /.list-group -->
+                    <a href="#" class="btn btn-default btn-block">View All Alerts</a>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+        <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-bar-chart-o fa-fw"></i> Activity Logs
+                    <div class="pull-right">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                Actions
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu pull-right" role="menu">
+                                <li><a href="#">Action</a>
+                                </li>
+                                <li><a href="#">Another action</a>
+                                </li>
+                                <li><a href="#">Something else here</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Date</th>
+                                            <th>Time</th>
+                                            <th>Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>3326</td>
+                                            <td>10/21/2013</td>
+                                            <td>3:29 PM</td>
+                                            <td>$321.33</td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.col-lg-4 (nested) -->
+                        <div class="col-lg-8">
+                            <div id="morris-bar-chart"></div>
+                        </div>
+                        <!-- /.col-lg-8 (nested) -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+    
+            <!-- /.panel -->
+        </div>
+
+<!--JUST IGNORE-->
+<!--google map stuffs-->
+
+<!--clinic info window template-->
+<template id="clinicInfoWindowTemplate">
+    <div>
+        <br />
+        <h5><a href="" class="name">Happy Clinic</a></h5>
+        <div class="address">Half Moon Dr, Lopez, Iloilo City, 5000 Iloilo</div>
+        <div><small class="contact">123-1234-123</small></div>
+        <hr />
+        <b>Clinic Hours:</b>
+        <ul>
+            <li><b>MWF:</b> 10:00AM - 11:00AM</li>
+            <li><b>TTH:</b> 8:00AM - 4:00PM</li>
+        </ul>
+        <b>Doctors:</b>
+        <ul class="doctors"></ul>
+        <br />
+        <div><a style="display: inline-block;" class="get-direction-btn">
+            <table>
+                <tr>
+                    <td><span class="material-icons pull-left">directions</span></td>
+                    <td>Get Direction</td>
+                </tr>
+            </table>
+        </a>
+        </div>
+        <div>
+            <a style="display: inline-block;" class="google-direction-btn">
+                <table>
+                    <tr>
+                        <td><span class="material-icons pull-left">link</span></td>
+                        <td>Google Direction</td>
+                    </tr>
+                </table>
+            </a>
+        </div>
+    </div>
+</template>
+
+<!--select route modal-->
+<div class="modal fade" id="selectTravelModeModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Select Travel Mode</h4>
+            </div>
+            <div class="modal-body">
+                <div class="list-group">
+                    <a ng-repeat="mode in dashboard.travelModes"
+                       ng-click="dashboard.calculateRouteOfSelectedMarker(dashboard.selectedClinicMarker, mode.code);"
+                       href="javascript: void(0);"
+                       class="list-group-item"
+                       data-dismiss="modal">
+                        <table>
+                            <tr>
+                                <td><span class="material-icons">{{mode.icon}}</span>
+                                </td><td style="padding: 0 5px;">{{mode.name}}</td>
+                            </tr>
+                        </table>
+                    </a>
+                    <a href="javascript: void(0);" class="list-group-item" data-dismiss="modal">
+                        <table>
+                            <tr>
+                                <td><span class="material-icons">cancel</span>
+                                </td><td style="padding: 0 5px;">Cancel</td>
+                            </tr>
+                        </table>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
