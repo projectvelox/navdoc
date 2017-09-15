@@ -127,6 +127,12 @@ angular.module('appRoute', ['ngRoute'])
                 //controller: '',
                 //controllerAs: ''
             })
+            .when('/doctor/user-profile/:id', {
+                templateUrl: 'app/pages/doctor/user-profile.html'
+                //,
+                //controller: '',
+                //controllerAs: ''
+            })
 
             .otherwise({redirectTo: '/'});
     });
