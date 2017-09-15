@@ -9,8 +9,9 @@ main { flex: 1 0 auto; }
 .doctor-about-container {background-color: #002544;}
 .doctor-icons { height: 150px;width: auto; -webkit-transition: -webkit-transform .8s ease-in-out; transition: transform .8s ease-in-out; }
 .doctor-icons:hover { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
-.doctor-white { color: #fff; }
+.doctor-map-container { height: 100vh; width: auto; background-color: #eee; }
 .doctor-orange { color: #f1811e; }
+.doctor-white { color: #fff; }
 
 .pt-1 { padding-top: 10px; }
 .pt-2 { padding-top: 20px; }
