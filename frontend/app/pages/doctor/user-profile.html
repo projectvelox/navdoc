@@ -67,7 +67,10 @@
             </div>
             <h4><small>Schedule of Appointment: September 13, 2017</small></h4>
             <hr>
-            <h4>Refer Outpatient to Other Doctor</h4>
+            <div class="text-center pt-3 pb-2">
+                <h4>Refer Outpatient to Another Doctor</h4>
+                <small>Hey? Are you too busy with life? You can always refer this patient to someone else.</small>
+            </div>
             <div class="table-responsive">
                 <table class="table">
                     <tr>
@@ -79,7 +82,7 @@
                         <th>Action</th>
                     </tr>
                     <tr ng-repeat="name in [0, 1, 2, 3, 4, 5] track by $index">
-                        <td>#</td>
+                        <td>{{($index + 1)}}</td>
                         <td><img src="http://lorempixel.com/50/50/people"></td>
                         <td>Dr. Marie Ariessa Lane Chua Ko</td>
                         <td>Internal Medicine</td>
