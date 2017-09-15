@@ -1,5 +1,5 @@
 angular.module('userControllers')
-    .controller('userDashboardCtrl', function ($scope, mapSv) {
+    .controller('userDashboardCtrl', function ($scope, serverSv, mapSv) {
         var dashboard = this;
 
         //components
@@ -23,7 +23,7 @@ angular.module('userControllers')
             map: dashboard.map
         });
         dashboard.searchBoxControl = new mapSv.classes.searchBoxControl({map: dashboard.map}, function (keyword) {
-             alert(keyword);
+            dashboard.search(keyword);
         });
         dashboard.infoWindow = new google.maps.InfoWindow();
 
@@ -83,6 +83,8 @@ angular.module('userControllers')
             $($(template).find('.name')).html(marker.data.name);
             $($(template).find('.name')).attr('href', '#/users/clinic-profile/marker.data.uid');
 
+            $($(template).find('.address')).html(marker.data.address);
+            $($(template).find('.contact')).html(marker.data.contact_number);
 
             for(var i = 0; i < marker.data.doctors.length; i++){
                 var doctor = marker.data.doctors[i];
@@ -103,6 +105,37 @@ angular.module('userControllers')
                 .attr('target','_blank')
                 .attr('href', googleMapsLink);
             return $(template)[0];
+        };
+        dashboard.fitResultBounds = function () {
+            var path = [];
+            if(dashboard.locationControl.active) path.push(dashboard.locationControl.marker.getPosition().toJSON());
+            for(var i = 0; i < dashboard.clinicMarkers.length; i++) path.push(dashboard.clinicMarkers[i].getPosition().toJSON());
+            if(path.length > 0)
+                dashboard.map.fitBounds(mapSv.syncMethods.getBoundsFromPath(path));
+        };
+        dashboard.search = function (keyword) {
+            var preloader = new Dialog.preloader('Searching for clinics');
+            serverSv.request('/clinic/search',{
+                method: 'POST',
+                data: {
+                    name: keyword,
+                    address: keyword
+                }
+            }).then(function (response) {
+                var data = response.data;
+                if(data.error) Dialog.alert('Unable Get Data', data.error[1]);
+                else {
+                    dashboard.clinics = data;
+                    dashboard.clearClinicMarkers();
+                    dashboard.renderClinics();
+                    dashboard.fitResultBounds();
+                }
+            }).catch(function (err) {
+                Dialog.alert('Unable Get Data', 'An unknown error occurred');
+                throw err;
+            }).finally(function () {
+                preloader.destroy();
+            });
         };
 
         //initialize

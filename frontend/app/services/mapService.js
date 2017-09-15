@@ -23,7 +23,7 @@ angular.module('mapService', [])
                         {name: 'Walking', materialIcon: 'directions_walk', googleConstant: 'WALKING'}
                     ];
                 },
-                getBoundsFromPath: function () {
+                getBoundsFromPath: function (path) {
                     var bounds = new google.maps.LatLngBounds();
                     for(var i = 0; i < path.length; i++)
                         bounds.extend(path[i]);
