@@ -110,29 +110,31 @@ angular.module('appRoute', ['ngRoute'])
 
             /*new plan*/
             .when('/user/appointments/pending', {
-                templateUrl: 'app/pages/user/appointments/pending.html'
-                //,
-                //controller: '',
-                //controllerAs: ''
+                templateUrl: 'app/pages/user/appointments/pending.html',
+                controller: 'userPendingAppointmentsCtrl',
+                controllerAs: 'appointments'
             })
+
             .when('/user/appointments/upcoming', {
                 templateUrl: 'app/pages/user/appointments/upcoming.html'
                 //,
                 //controller: '',
                 //controllerAs: ''
             })
+
             .when('/user/appointments/history', {
-                templateUrl: 'app/pages/user/appointments/history.html'
-                //,
-                //controller: '',
-                //controllerAs: ''
+                templateUrl: 'app/pages/user/appointments/history.html',
+                controller: 'userHistoryAppointmentsCtrl',
+                controllerAs: 'appointments'
             })
+
             .when('/user/appointments/profile/:id', {
                 templateUrl: 'app/pages/user/appointments/profile.html'
                 //,
                 //controller: '',
                 //controllerAs: ''
             })
+
             .when('/user/settings', {
                 templateUrl: 'app/pages/user/settings.html'
                 //,

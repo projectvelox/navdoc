@@ -1,12 +1,18 @@
-<div class="container pt-3 pb-3">
+<div class="p-5" ng-show="appointments.loading">
+    <div class="wrap-loading">
+        <div class="loading loading-3"></div>
+    </div>
+</div>
+
+<div class="container pt-3 pb-3" ng-hide="appointments.loading">
     <h2>Pending Appointment Request</h2><hr>
-    <div class="col-xs-12 col-md-6">
+    <div class="col-xs-12 col-md-6" ng-repeat="appointment in appointments.list track by $index">
         <div class="panel panel-default">
-            <div class="panel-heading"><strong>Purpose: My Feet Hurts</strong></div>
+            <div class="panel-heading"><strong>{{appointment.purpose}}</strong></div>
             <div class="panel-body">
-                <p><strong>Clinic:</strong> Happy Clinic</p>
-                <p><strong>Doctor:</strong> Happy Clinic</p>
-                <p><strong>Schedule:</strong> December 18, 2017</p>
+                <p><strong>Clinic:</strong> {{appointment.doctor.clinic.name}}</p>
+                <p><strong>Doctor:</strong> {{appointment.doctor.username}}</p>
+                <p><strong>Schedule:</strong> {{appointments.convertDate(appointment.date[appointment.date.length - 1]) | date : format : timezone}}</p>
             </div>
         </div>
     </div>
