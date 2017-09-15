@@ -95,5 +95,13 @@ angular.module('appRoute', ['ngRoute'])
                 //controllerAs: ''
             })
 
+            //DOCTORS
+            .when('/doctor/user-details', {
+                templateUrl: 'app/pages/doctor/user-details.html'
+                //,
+                //controller: '',
+                //controllerAs: ''
+            })
+
             .otherwise({redirectTo: '/'});
     });
