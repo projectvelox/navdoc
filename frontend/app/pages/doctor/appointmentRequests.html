@@ -6,10 +6,10 @@
         <div class="col-sm-12 col-lg-6">
             <div class="list-group" ng-repeat="appointment in appointmentRequests.list track by $index">
                 <div class="list-group-item">
-                    <p>{{appointment.user.username}}<br />
-                        purpose: {{appointment.purpose}} <br />
-                        payment method: {{appointment.trans_type}} <br />
-                        <small>{{appointmentRequests.convertDate(appointment.date[appointment.date.length - 1]) | date : format : timezone}}</small>
+                    <span class="pull-right"><small>{{appointmentRequests.convertDate(appointment.date[appointment.date.length - 1]) | date : format : timezone}}</small></span>
+                    <h4>{{appointment.user.username}}</h4>
+                    <p><span style="color: gray;">Purpose</span>: {{appointment.purpose}} <br />
+                        <span style="color: gray;">Payment Method</span>: {{appointment.trans_type}} <br />
                     </p>
                     <div class="text-right">
                         <button ng-click="appointmentRequests.accept($index);" class="btn btn-success btn-sm">Accept</button>
