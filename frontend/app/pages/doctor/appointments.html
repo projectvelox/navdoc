@@ -1,0 +1,137 @@
+<div class="container pt-3 pb-5">
+	<h1>Appointments</h1><hr>
+	<div class="row">
+		<div class="col-xs-12 col-md-8">
+			<ul class="nav nav-tabs">
+			  	<li class="active"><a data-toggle="tab" data-target="#home">Pending Appointments</a></li>
+			  	<li><a data-toggle="tab" data-target="#menu1">Accepted</a></li>
+				<li><a data-toggle="tab" data-target="#menu2">History</a></li>  
+			</ul>
+
+			<div class="tab-content">
+			  	<div id="home" class="tab-pane fade in active">
+			  		<div class="pt-3">
+					  	<div class="text-center">
+					  		<h3>Pending Appointments</h3>
+					  		<small>You can accept them by clicking the check button or if you want to thoroughly check it out, you can click the see more button</small>
+					  	</div>
+					  	<div class="table-responsive pt-3">
+							<table class="table table-striped">
+								<tr>
+									<th>#</th>
+									<th>Avatar</th>
+									<th>Name</th>
+									<th>Gender</th>
+									<th>Appointment Date</th>
+									<th>Action</th>
+								</tr>
+								<tr ng-repeat="name in [0, 1, 2, 3, 4, 5] track by $index">
+									<td>{{($index + 1)}}</td>
+									<td><img src="http://lorempixel.com/50/50/people"></td>
+									<td>Ariessa Lane Ko</td>
+									<td>Female</td>
+									<td>September 20, 2017</td>
+									<td>
+										<div class="btn-group">
+										  <a href="#" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-ok"></span></a>
+										  <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></a>
+										  <a href="#/admin/doctor-profile/2" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-option-horizontal"></span></a>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+			  	</div>
+			  	<div id="menu1" class="tab-pane fade">
+			    	<div class="pt-3">
+					  	<div class="text-center">
+						  	<h3>Upcoming Appointments</h3>
+						  	<small>Here are the list of users that have already been accepted and will be included in the queue.</small>
+					  	</div>
+					  	<div class="table-responsive pt-3">
+							<table class="table table-striped">
+								<tr>
+									<th>#</th>
+									<th>Avatar</th>
+									<th>Name</th>
+									<th>Gender</th>
+									<th>Appointment Date</th>
+									<th>Action</th>
+								</tr>
+								<tr ng-repeat="name in [0, 1, 2, 3, 4, 5] track by $index">
+									<td>{{($index + 1)}}</td>
+									<td><img src="http://lorempixel.com/50/50/people"></td>
+									<td>Ariessa Lane Ko</td>
+									<td>Female</td>
+									<td>September 20, 2017</td>
+									<td>
+										<div class="btn-group">
+										  <a href="#" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-ok"></span></a>
+										  <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></a>
+										  <a href="#/admin/doctor-profile/2" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-option-horizontal"></span></a>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+			  	</div>
+			  	<div id="menu2" class="tab-pane fade">
+			    	<div class="pt-3">
+					  	<div class="text-center">
+						  	<h3>Completed Appointments</h3>
+						  	<small>Here are the list of users that have already been accepted and will be included in the queue.</small>
+					  	</div>
+					  	<div class="table-responsive pt-3">
+							<table class="table table-striped">
+								<tr>
+									<th>#</th>
+									<th>Avatar</th>
+									<th>Name</th>
+									<th>Gender</th>
+									<th>Appointment Date</th>
+									<th>Action</th>
+								</tr>
+								<tr ng-repeat="name in [0, 1, 2, 3, 4, 5] track by $index">
+									<td>{{($index + 1)}}</td>
+									<td><img src="http://lorempixel.com/50/50/people"></td>
+									<td>Ariessa Lane Ko</td>
+									<td>Female</td>
+									<td>September 20, 2017</td>
+									<td><a href="#/admin/doctor-profile/2" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-option-horizontal"></span></a></div>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+			  	</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-md-4">
+			<div class="row">
+				<div class="col-xs-12 col-md-12 text-center">
+					<div style="border: 1px solid #eee; padding: 25px; margin: 10px 0px;">
+						<h3>Pending Appointments</h3>
+						<h4><small>Number of Pending Appointments</small></h4>
+						<h1>4</h1>
+					</div>
+				</div>
+				<div class="col-xs-12 col-md-12 text-center">
+					<div style="border: 1px solid #eee; padding: 25px; margin: 10px 0px;">
+						<h3>Upcoming Appointments</h3>
+						<h4><small>Number of Upcoming Appointments</small></h4>
+						<h1>3</h1>
+					</div>
+				</div>
+				<div class="col-xs-12 col-md-12 text-center">
+					<div style="border: 1px solid #eee; padding: 25px; margin: 10px 0px;">
+						<h3>Completed Appointments</h3>
+						<h4><small>Number of Completed Appointments</small></h4>
+						<h1>302</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
