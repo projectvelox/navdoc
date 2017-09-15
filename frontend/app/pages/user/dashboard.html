@@ -3,67 +3,31 @@
 </div>
 <div class="container pb-5">
 	<h1 class="pt-3">Dashboard</h1>
-	
 	<hr>
 	<div class="row">
-		<div class="col-xs-12 col-md-5">
-			<div class="doctor-card-container">
-				<a href="#/user/profile">
-				<div class="doctor-icon-container">
-					<img src="assets/images/icons/profiling.png" class="img-responsive center-block">
-					<h4>Profile</h4>
-				</div></a>
-			</div>
-			<div class="doctor-card-container">
-                <a href="#/user/appointment-history">
-                <div class="doctor-icon-container">
-                    <img src="assets/images/icons/appointment-history.png" class="img-responsive center-block">
-                    <h4>Appointment</h4>
-                </div></a>
-        	</div>
-			<div class="doctor-card-container">
-				<a href="#/user/transaction-logs">
-				<div class="doctor-icon-container">
-					<img src="assets/images/icons/statement.png" class="img-responsive center-block">
-					<h4>Transaction</h4>
-				</div></a>
-			</div>
+		<div class="col-xs-12 col-md-3">
+			<a href="#/user/appointments/request"><div class="text-center" style="border: 1px solid #eee; padding: 5px margin: 5px">
+				<h4>Pending Appointment Request</h4>
+			</div></a>
 		</div>
-		<div class="col-xs-12 col-md-7" ng-hide="false">
-			<h3>Search Results</h3><hr>
-			<div class="row">
-				<div class="col-xs-12 col-md-6">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-					  		<div class="row"> 
-								<div class="col-xs-10 col-md-10"><strong>Happy Clinic</strong></div>
-						  		<div class="col-xs-2 col-md-2"><a href="#/clinic-profile/2"><span class="glyphicon glyphicon-menu-right"></span></a></div>
-					  		</div>					  	
-					  	</div>
-					  	<div class="panel-body">
-					  		<p><strong>Province</strong> Iloilo</p>
-					  		<p><strong>City</strong> Iloilo City</p>
-					  		<p><strong>Address</strong> Half Moon Dr, Lopez, Iloilo City, 5000 Iloilo 123-1234-123</p>
-					  </div>
-					</div>
-				</div>
-				<div class="col-xs-12 col-md-6">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<div class="row"> 
-						  		<div class="col-xs-10 col-md-10"><strong>Happy Clinic</strong></div>
-						  		<div class="col-xs-2 col-md-2"><a href="#/clinic-profile/2"><span class="glyphicon glyphicon-menu-right"></span></a></div>
-					  		</div>
-					  	</div>
-					  	<div class="panel-body">
-					  		<p><strong>Province</strong> Iloilo</p>
-					  		<p><strong>City</strong> Iloilo City</p>
-					  		<p><strong>Address</strong> Half Moon Dr, Lopez, Iloilo City, 5000 Iloilo 123-1234-123</p>
-					  </div>
-					</div>
-				</div>
-			</div>
-        </div>
+		<div class="col-xs-12 col-md-3">
+			<a href="#/user/appointments/upcoming">
+			<div class="text-center" style="border: 1px solid #eee; padding: 5px">
+				<h4>Upcoming Appointments</h4>
+			</div></a>
+		</div>
+		<div class="col-xs-12 col-md-3">
+			<a href="#/user/appointments/history">
+			<div class="text-center" style="border: 1px solid #eee; padding: 5px">
+				<h4>Appointment History</h4>
+			</div></a>
+		</div>
+		<div class="col-xs-12 col-md-3">
+			<a href="#/user/settings">
+			<div class="text-center" style="border: 1px solid #eee; padding: 5px">
+				<h4>Settings</h4>
+			</div></a>
+		</div>
     </div>
 </div>
 
@@ -99,3 +63,28 @@
         </div>
     </div>
 </template>
+
+
+
+<!--
+			<div class="doctor-card-container">
+				<a href="#/user/profile">
+				<div class="doctor-icon-container">
+					<img src="assets/images/icons/profiling.png" class="img-responsive center-block">
+					<h4>Profile</h4>
+				</div></a>
+			</div>
+			<div class="doctor-card-container">
+                <a href="#/user/appointment-history">
+                <div class="doctor-icon-container">
+                    <img src="assets/images/icons/appointment-history.png" class="img-responsive center-block">
+                    <h4>Appointment</h4>
+                </div></a>
+        	</div>
+			<div class="doctor-card-container">
+				<a href="#/user/transaction-logs">
+				<div class="doctor-icon-container">
+					<img src="assets/images/icons/statement.png" class="img-responsive center-block">
+					<h4>Transaction</h4>
+				</div></a>
+			</div>-->

@@ -108,6 +108,22 @@ angular.module('appRoute', ['ngRoute'])
                 //controllerAs: ''
             })
 
+            /*new plan*/
+            .when('/user/appointments', {
+                templateUrl: 'app/pages/user/appointments.html'
+                //,
+                //controller: '',
+                //controllerAs: ''
+            })
+            .when('/user/settings', {
+                templateUrl: 'app/pages/user/settings.html'
+                //,
+                //controller: '',
+                //controllerAs: ''
+            })
+
+
+
             //DOCTORS
             .when('/doctor/appointments', {
                 templateUrl: 'app/pages/doctor/appointments.html'
