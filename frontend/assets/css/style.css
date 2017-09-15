@@ -1,6 +1,7 @@
 /*modified bootstrap*/
 .navbar-inverse {background-color: #002544;border-color: #002544; border-radius: 0px; margin-bottom: 0px;}
 
+
 /*customized css*/
 body { display: flex; min-height: 100vh; flex-direction: column; }
 main { flex: 1 0 auto; }
