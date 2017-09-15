@@ -25,10 +25,10 @@ angular.module('appRoute', ['ngRoute'])
 
             //USERS
             .when('/user/dashboard', {
-                templateUrl: 'app/pages/user/dashboard.html'
-                //,
+                templateUrl: 'app/pages/user/dashboard.html',
                 //controller: '',
-                //controllerAs: ''
+                //controllerAs: '',
+                allowedUsers: ['user']
             })
             .otherwise({redirectTo: '/'});
     });
