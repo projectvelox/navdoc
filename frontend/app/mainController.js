@@ -4,6 +4,6 @@ angular.module('mainController', [])
 
         //filter route
         $scope.$on('$routeChangeStart', function (event, next, prev) {
-            
+
         });
     });
