@@ -11,9 +11,9 @@ angular.module('appRoute', ['ngRoute'])
             })
 
             .when('/signup', {
-                templateUrl: 'app/pages/public/signup.html',
-                controller: 'signupCtrl',
-                controllerAs: 'signup'
+                templateUrl: 'app/pages/public/home.html',
+                controller: 'homeCtrl',
+                controllerAs: 'home'
             })
 
             .when('/login', {
@@ -31,17 +31,6 @@ angular.module('appRoute', ['ngRoute'])
 
 
             //USERS
-            .when('/user/dashboard', {
-                templateUrl: 'app/pages/user/dashboard.html',
-                controller: 'userDashboardCtrl',
-                controllerAs: 'dashboard',
-                allowedUsers: ['user']
-            })
-
-            .when('/user/feedback', {
-                templateUrl: 'app/pages/user/feedback.html'
-            })
-
             .when('/user/appointment/:id', {
                 templateUrl: 'app/pages/user/appointment.html'
                 //,
@@ -54,6 +43,13 @@ angular.module('appRoute', ['ngRoute'])
                 //,
                 //controller: '',
                 //controllerAs: ''
+            })
+
+            .when('/user/dashboard', {
+                templateUrl: 'app/pages/user/dashboard.html',
+                controller: 'userDashboardCtrl',
+                controllerAs: 'dashboard',
+                allowedUsers: ['user']
             })
 
             .when('/user/doctor-profile/:id', {
@@ -78,7 +74,7 @@ angular.module('appRoute', ['ngRoute'])
                 //controllerAs: ''
             })
 
-            .when('/user/searched-result', {
+            .when('/user/transaction-logs', {
                 templateUrl: 'app/pages/user/transaction-logs.html'
                 //,
                 //controller: '',
