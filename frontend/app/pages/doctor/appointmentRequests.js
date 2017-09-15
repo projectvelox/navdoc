@@ -1,11 +1,13 @@
 angular.module('doctorControllers')
     .controller('doctorAppointmentRequestsCtrl', function ($location, serverSv) {
         var appointmentRequests = this;
+        appointmentRequests.loading = false;
         appointmentRequests.list = [];
         appointmentRequests.convertDate = function (date) {
             return new Date(date);
         };
         appointmentRequests.init = function () {
+            appointmentRequests.loading = true;
             serverSv.request('/appointment/get/pending')
                 .then(function (response) {
                     var data = response.data;
@@ -16,7 +18,7 @@ angular.module('doctorControllers')
                     $location.path('/');
                     throw err;
                 }).finally(function () {
-
+                    appointmentRequests.loading = false;
                 });
         };
         appointmentRequests.createTransaction = function(appointment){
@@ -34,6 +36,7 @@ angular.module('doctorControllers')
             });
         };
         appointmentRequests.accept = function (index) {
+            var preloader = new Dialog.preloader('Accepting patient');
             serverSv.request('/appointment/accept/' + appointmentRequests.list[index].uid)
                 .then(function (response) {
                     var data = response.data;
@@ -46,10 +49,11 @@ angular.module('doctorControllers')
                 }).catch(function (err) {
                     Dialog.alert('Unable to Proceed', 'An unknown error occurred');
                 }).finally(function () {
-
+                    preloader.destroy();
                 });
         };
         appointmentRequests.decline = function (index) {
+            var preloader = new Dialog.preloader('Declining patient');
             serverSv.request('/appointment/decline/' + appointmentRequests.list[index].uid)
                 .then(function (response) {
                     var data = response.data;
@@ -61,7 +65,8 @@ angular.module('doctorControllers')
                 }).catch(function (err) {
                     Dialog.alert('Unable to Proceed', 'An unknown error occurred');
                 }).finally(function () {
-
+                var preloader = new Dialog.preloader('Accepting patient');
+                    preloader.destroy();
                 });
         };
         appointmentRequests.init();

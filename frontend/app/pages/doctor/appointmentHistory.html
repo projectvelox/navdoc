@@ -1,14 +1,20 @@
-<div class="container pt-3 pb-5">
-    <h1>Appointments History</h1>
+<div class="p-5" ng-show="appointmentHistory.loading">
+    <div class="wrap-loading">
+        <div class="loading loading-3"></div>
+    </div>
+</div>
 
+<div class="container pt-3 pb-5" ng-hide="appointmentHistory.loading">
+    <h1>Appointments History</h1>
     <hr />
     <div class="row">
         <div class="col-sm-12 col-lg-6">
             <div class="list-group">
                 <a href="#" class="list-group-item" ng-repeat="appointment in appointmentHistory.list track by $index">
-                    <p>{{appointment.user.username}}<br />
-                        {{appointment.purpose}} <br />
-                        <small>{{appointmentHistory.convertDate(appointment.date[appointment.date.length - 1]) | date : format : timezone}}</small>
+                    <span class="pull-right"><small>{{appointmentHistory.convertDate(appointment.date[appointment.date.length - 1]) | date : format : timezone}}</small></span>
+                    <h4>{{appointment.user.username}}</h4>
+                    <p><span style="color: gray;">Purpose</span>: {{appointment.purpose}} <br />
+                        <span style="color: gray;">Payment Method</span>: {{appointment.trans_type}} <br />
                     </p>
                 </a>
             </div>

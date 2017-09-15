@@ -1,4 +1,10 @@
-<div class="container pt-3 pb-5">
+<div class="p-5" ng-show="appointmentRequests.loading">
+    <div class="wrap-loading">
+        <div class="loading loading-3"></div>
+    </div>
+</div>
+
+<div class="container pt-3 pb-5" ng-hide="appointmentRequests.loading">
     <h1>Patient Requests</h1>
 
     <hr />

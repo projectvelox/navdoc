@@ -167,6 +167,12 @@ angular.module('appRoute', ['ngRoute'])
                 controllerAs: 'appointmentHistory'
             })
 
+            .when('/doctor/transactions', {
+                templateUrl: 'app/pages/doctor/transactions.html',
+                controller: 'doctorTransactionsCtrl',
+                controllerAs: 'transactions'
+            })
+
             .when('/doctor/settings', {
                 templateUrl: 'app/pages/doctor/settings.html'
                 //,
