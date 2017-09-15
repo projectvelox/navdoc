@@ -6,20 +6,19 @@
 
 <div class="container pt-3 pb-5" ng-hide="transactions.loading">
     <h1>Transactions</h1>
-
     <hr />
+
     <div class="row">
         <div class="col-sm-12 col-lg-6">
-            <div class="list-group" ng-repeat="appointment in appointmentRequests.list track by $index">
-                <div class="list-group-item">
-                    <span class="pull-right"><small>{{appointmentRequests.convertDate(appointment.date[appointment.date.length - 1]) | date : format : timezone}}</small></span>
-                    <h4>{{appointment.user.username}}</h4>
-                    <p><span style="color: gray;">Purpose</span>: {{appointment.purpose}} <br />
-                        <span style="color: gray;">Payment Method</span>: {{appointment.trans_type}} <br />
+            <div class="list-group">
+                <a href="" class="list-group-item" ng-repeat="transaction in transactions.list track by $index">
+                    <h4>{{transaction.uid}}</h4>
+                    <p><span style="color: gray;">Method</span>: {{transaction.trans_type}} <br />
+                        <span style="color: gray;">Amount</span>: {{transaction.amount}} <br />
                     </p>
-                </div>
+                </a>
             </div>
-            <p ng-show="appointmentRequests.list.length < 1">No requests yet.</p>
+            <p ng-show="transactions.list.length < 1">No Transactions.</p>
         </div>
     </div>
 </div>

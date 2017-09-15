@@ -9,7 +9,7 @@ angular.module('doctorControllers')
                 .then(function (response) {
                     var data = response.data;
                     if(data.error) throw data;
-                    else transactions.list = [];
+                    else transactions.list = data;
                     console.log(data);
                 }).catch(function (err) {
                     $location.path('/');
