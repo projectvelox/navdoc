@@ -108,6 +108,13 @@ angular.module('appRoute', ['ngRoute'])
                 //controllerAs: ''
             })
 
+            .when('/user/health-bot', {
+                templateUrl: 'app/pages/user/health-bot.html',
+                controller: 'userHealthBotCtrl',
+                controllerAs: 'healthBot'//,
+                //allowedUsers: ['user']
+            })
+
             //DOCTORS
             .when('/doctor/user-details', {
                 templateUrl: 'app/pages/doctor/user-details.html'

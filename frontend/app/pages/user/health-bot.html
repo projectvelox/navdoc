@@ -1,0 +1,39 @@
+<style>
+    .chat-wrapper {
+        height: calc(100vh - 92.8px);
+        width: 100%;
+        position: absolute;
+        display: flex;
+    }
+    .chat-inner-wrapper {
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+    .chat-box-wrapper {
+        height: 100%;
+        width: 100%;
+    }
+    .d-flex {
+        display: flex;
+    }
+</style>
+<div class="chat-wrapper" ng-init="main.showFooter = false;">
+    <div class="chat-inner-wrapper">
+        <div class="d-flex chat-box-wrapper">
+            <div>
+
+            </div>
+        </div>
+        <div class="d-flex">
+            <form>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn"><button class="btn btn-primary" type="button">Send</button></span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

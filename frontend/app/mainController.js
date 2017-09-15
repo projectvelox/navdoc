@@ -2,6 +2,7 @@ angular.module('mainController', [])
     .controller('mainCtrl', function ($scope, $location, serverSv, appSv) {
         var main = this;
         main.pageLoading = false;
+        main.showFooter = true;
         main.getUserPath = function () {
             if(main.user) return appSv.getUserPath(main.user.account_type);
             return '';
@@ -25,6 +26,7 @@ angular.module('mainController', [])
                 });
         };
         $scope.$on('$routeChangeStart', function (event, next) {
+            main.showFooter = true;
             var isAuthorized = function () {
                 if(!next.allowedUsers) return true;
                 else if(!main.user) return false;

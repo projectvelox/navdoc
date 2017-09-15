@@ -50,6 +50,7 @@
         <script type="text/javascript" src="app/pages/user/profileCtrl.js"></script>
         <script type="text/javascript" src="app/pages/user/appointment-historyCtrl.js"></script>
         <script type="text/javascript" src="app/pages/user/appointmentCtrl.js"></script>
+        <script type="text/javascript" src="app/pages/user/health-botCtrl.js"></script>
 
     </head>
     <body ng-app="app" ng-controller="mainCtrl as main">
@@ -94,7 +95,7 @@
             </div>
             <ng-view ng-show="!main.pageLoading"></ng-view>
         </main>
-        <footer>
+        <footer ng-show="main.showFooter">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 col-sm-6 footerleft ">

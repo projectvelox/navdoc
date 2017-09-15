@@ -3,6 +3,7 @@ angular.module('publicControllers')
         var login = this;
         login.errorMessage = undefined;
         login.form = {};
+        login.rememberMe = false;
         login.redirectToDashbord = function () {
             var preloader = new Dialog.preloader('Authenticating...');
             serverSv.auth.me()
@@ -20,9 +21,11 @@ angular.module('publicControllers')
         };
         login.resetForm = function () {
             login.form = {
-                email: '',
-                password: ''
+                email: sessionStorage.getItem('remember.Email') || '',
+                password: sessionStorage.getItem('remember.Password') || ''
             };
+            if(login.form.email != '' || login.form.password != '')
+                login.rememberMe = true;
         };
         login.submitForm = function () {
             var preloader = new Dialog.preloader('Logging in...');
@@ -33,6 +36,13 @@ angular.module('publicControllers')
                     if(data.error) login.errorMessage = data.error[1];
                     else if(data.session_token) {
                         serverSv.auth.key(data.session_token);
+                        if(login.rememberMe) {
+                            sessionStorage.setItem('remember.Email', login.form.email);
+                            sessionStorage.setItem('remember.Password', login.form.password);
+                        } else {
+                            sessionStorage.removeItem('remember.Email');
+                            sessionStorage.removeItem('remember.Password');
+                        }
                         login.redirectToDashbord();
                     }
                     else throw data;
