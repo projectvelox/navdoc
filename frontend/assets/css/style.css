@@ -15,10 +15,12 @@
 .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus { background-color: #002544; }
 .navbar-inverse .navbar-toggle { border-color: #002544; }
 .panel { border-radius: 0px; }
+.embed-responsive-4by3 { padding-bottom: 105%; margin-top: 30px; }
 
 /*customized css*/
 body { display: flex; min-height: 100vh; flex-direction: column; }
 main { flex: 1 0 auto; }
+
 
 .admin-card-container { height: auto; width: 500px; border: 1px solid #eee; background-color: #fbfbfb; display: inline-block; margin: 5px; }
 .admin-icon-stat-container img { height: 200px; width: 500px; }
