@@ -3,5 +3,6 @@ angular.module('app', [
     'mainController',
     'serverService',
     'mapService',
+    'appService',
     'publicControllers'
 ]);

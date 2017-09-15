@@ -1,6 +1,6 @@
 angular.module('serverService', [])
     .factory('serverSv', function ($http) {
-        var host = 'http://127.0.0.1';
+        var host = 'http://192.168.43.126:2162';
         var service = {
             getHost: function () {
                 return host;
@@ -21,6 +21,18 @@ angular.module('serverService', [])
                 key: function (newKey) {
                     if(newKey) sessionStorage.setItem('authKey', newKey);
                     else return sessionStorage.getItem('authKey');
+                },
+                login: function (data) {
+                    return service.request('/account/login', {
+                        method: 'POST',
+                        data: data
+                    });
+                },
+                logout: function () {
+                    return service.request('/account/logout');
+                },
+                me: function () {
+                    return service.request('/account/me');
                 }
             }
         };

@@ -18,10 +18,9 @@ angular.module('appRoute', ['ngRoute'])
             })
 
             .when('/login', {
-                templateUrl: 'app/pages/public/login.html'
-                //,
-                //controller: '',
-                //controllerAs: ''
+                templateUrl: 'app/pages/public/login.html',
+                controller: 'loginCtrl',
+                controllerAs: 'login'
             })
 
             //USERS
