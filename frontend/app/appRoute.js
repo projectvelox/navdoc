@@ -78,8 +78,15 @@ angular.module('appRoute', ['ngRoute'])
                 //controllerAs: ''
             })
 
-            .when('/user/transaction-logs', {
+            .when('/user/searched-result', {
                 templateUrl: 'app/pages/user/transaction-logs.html'
+                //,
+                //controller: '',
+                //controllerAs: ''
+            })
+
+            .when('/user/clinic-list', {
+                templateUrl: 'app/pages/user/clinic-list.html'
                 //,
                 //controller: '',
                 //controllerAs: ''

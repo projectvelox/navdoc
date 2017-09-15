@@ -1,5 +1,5 @@
 angular.module('userControllers')
-    .controller('userDashboardCtrl', function (mapSv) {
+    .controller('userDashboardCtrl', function ($scope, serverSv, mapSv) {
         var dashboard = this;
 
         //components
@@ -21,6 +21,9 @@ angular.module('userControllers')
         });
         dashboard.directionRenderer = new mapSv.classes.directionsRenderer({
             map: dashboard.map
+        });
+        dashboard.searchBoxControl = new mapSv.classes.searchBoxControl({map: dashboard.map}, function (keyword) {
+            dashboard.search(keyword);
         });
         dashboard.infoWindow = new google.maps.InfoWindow();
 
@@ -80,6 +83,8 @@ angular.module('userControllers')
             $($(template).find('.name')).html(marker.data.name);
             $($(template).find('.name')).attr('href', '#/users/clinic-profile/marker.data.uid');
 
+            $($(template).find('.address')).html(marker.data.address);
+            $($(template).find('.contact')).html(marker.data.contact_number);
 
             for(var i = 0; i < marker.data.doctors.length; i++){
                 var doctor = marker.data.doctors[i];
@@ -101,6 +106,42 @@ angular.module('userControllers')
                 .attr('href', googleMapsLink);
             return $(template)[0];
         };
+        dashboard.fitResultBounds = function () {
+            var path = [];
+            if(dashboard.locationControl.active) path.push(dashboard.locationControl.marker.getPosition().toJSON());
+            for(var i = 0; i < dashboard.clinicMarkers.length; i++) path.push(dashboard.clinicMarkers[i].getPosition().toJSON());
+            if(path.length > 0)
+                dashboard.map.fitBounds(mapSv.syncMethods.getBoundsFromPath(path));
+        };
+        dashboard.search = function (keyword) {
+            if(keyword.trim() == ''){
+                Dialog.alert('Please enter a keyword to search.');
+            } else {
+                var preloader = new Dialog.preloader('Searching for clinics');
+                serverSv.request('/clinic/search',{
+                    method: 'POST',
+                    data: {
+                        query: keyword
+                    }
+                }).then(function (response) {
+                    var data = response.data;
+                    if(data.error) Dialog.alert('Unable Get Data', data.error[1]);
+                    else {
+                        dashboard.clinics = data;
+                        dashboard.clearClinicMarkers();
+                        dashboard.renderClinics();
+                        dashboard.fitResultBounds();
+                        dashboard.searchBoxControl.clear();
+                        dashboard.alertControl.show(data.length + ' result/s');
+                    }
+                }).catch(function (err) {
+                    Dialog.alert('Unable Get Data', 'An unknown error occurred');
+                    throw err;
+                }).finally(function () {
+                    preloader.destroy();
+                });
+            }
+        };
 
         //initialize
         mapSv.asyncMethods.getUserLocation(function (err, position) {
@@ -110,5 +151,10 @@ angular.module('userControllers')
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             });
+        });
+        $scope.$on('pageValidated', function () {
+            setTimeout(function () {
+                google.maps.event.trigger(dashboard.map, 'resize');
+            }, 2000);
         });
     });
