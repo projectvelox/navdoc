@@ -39,204 +39,144 @@
     </div>
 
     <div class="well">
-      <div class="tab-content">
-        <div class="tab-pane fade in active" id="tab1">
-        	<div class="text-center pb-3">
-        		<h2>Personal Information</h2>
-        		<small>Information that is regarding the user is displayed in this context</small>
-        	</div>
-        	<div class="row">
-				<div class="col-md-6">
-					<div class="table-responsive">
-					  	<table class="table">
-						    <tr>      
-						        <td><strong>First Name</strong></td>
-						        <td>John</td> 
-						    </tr>
-						    <tr>    
-								<td><strong>Middle Name</strong></td>
-								<td>Rengar</td>       
-							</tr>
-							<tr>    
-								<td><strong>Last Name</strong></td>
-								<td>Doe</td>       
-							</tr>
-							<tr>    
-								<td><strong>Birthday</strong></td>
-								<td><a href="#">Add Birthdate</a></td>       
-							</tr>
-							<tr>    
-								<td><strong>Address</strong></td>
-								<td><a href ="#" >Add Address</a></td>       
-							</tr>
-							<tr>
-								<td><strong>Gender</strong></td>
-								<td><a href ="#">Add Gender</a></td> 
-							</tr>
-					  	</table>
-				 	</div>
-				</div>
-				<div class="col-md-6">
-					<div class="table-responsive">
-					  	<table class="table">
-					     	<tr>  
-					        	<td><strong>Email Address</strong></td>
-					        	<td>johnDoe@gmail.com</td> 
-					     	</tr>
-					     	<tr>    
-					        	<td><strong>Mobile</strong></td>
-					        	<td><a href="#">Add Mobile Number</a></td>       
-					     	</tr>
-					     	<tr>    
-					        	<td><strong>Phone</strong></td>
-					        	<td><a href="#">Add Phone Number</a></td>       
-					    	</tr>
-						    <tr>
-						        <td><strong>Affiliation</strong></td>
-						        <td><a href="#"> Add Affiliation</a></td> 
-						    </tr>
-					  	</table>
+	    <div class="tab-content">
+	        <div class="tab-pane fade in active" id="tab1">
+	        	<div class="text-center pb-3">
+	        		<h2>Personal Information</h2>
+	        		<small>Information that is regarding the user is displayed in this context</small>
+	        	</div>
+	        	<div class="row">
+					<div class="col-md-6">
+						<div class="table-responsive">
+						  	<table class="table">
+							    <tr>      
+							        <td><strong>First Name</strong></td>
+							        <td>John</td> 
+							    </tr>
+							    <tr>    
+									<td><strong>Middle Name</strong></td>
+									<td>Rengar</td>       
+								</tr>
+								<tr>    
+									<td><strong>Last Name</strong></td>
+									<td>Doe</td>       
+								</tr>
+								<tr>    
+									<td><strong>Birthday</strong></td>
+									<td><a href="#">Add Birthdate</a></td>       
+								</tr>
+								<tr>    
+									<td><strong>Address</strong></td>
+									<td><a href ="#" >Add Address</a></td>       
+								</tr>
+								<tr>
+									<td><strong>Gender</strong></td>
+									<td><a href ="#">Add Gender</a></td> 
+								</tr>
+						  	</table>
+					 	</div>
+					</div>
+					<div class="col-md-6">
+						<div class="table-responsive">
+						  	<table class="table">
+						     	<tr>  
+						        	<td><strong>Email Address</strong></td>
+						        	<td>johnDoe@gmail.com</td> 
+						     	</tr>
+						     	<tr>    
+						        	<td><strong>Mobile</strong></td>
+						        	<td><a href="#">Add Mobile Number</a></td>       
+						     	</tr>
+						     	<tr>    
+						        	<td><strong>Phone</strong></td>
+						        	<td><a href="#">Add Phone Number</a></td>       
+						    	</tr>
+							    <tr>
+							        <td><strong>Affiliation</strong></td>
+							        <td><a href="#"> Add Affiliation</a></td> 
+							    </tr>
+						  	</table>
+						</div>
 					</div>
 				</div>
+	        </div>
+	        <div class="tab-pane fade in" id="tab2">
+	          	<div class="text-center pb-3">
+	        		<h2>Appointment History</h2>
+	        		<small>Information that is regarding the user is displayed in this context</small>
+	        	</div>
+	          	<div class="table-responsive">
+					<table class="table table-striped">
+						<tr>
+							<th>#</th>
+							<th>Clinic</th>
+							<th>Doctor</th>
+							<th>Appointment Date</th>
+							<th>Action</th>
+						</tr>
+						<tr ng-repeat="d in [1,2,3,4,5,6] track by $index">
+							<td>{{($index + 1)}}</td>
+							<td><a href="#/clinic-profile/1">Happy Clinic</a></td>
+							<td><a href="#/user/doctor-profile/2">Dr. Ariessa Lane Chua Ko</a></td>
+							<td>September 18, 2017 1:00PM</td>
+							<td><a href="#/user/appointment/1" class="btn btn-primary btn-sm">Check</a></td>
+						</tr>
+					</table>
+				</div>
+	        </div>
+	        <div class="tab-pane fade in" id="tab3">
+	          	<div class="text-center pb-3">
+	        		<h2>Transaction Logs</h2>
+	        		<small>Information that is regarding the user is displayed in this context</small>
+	        	</div>
+	          	<div class="table-responsive">
+					<table class="table table-striped">
+						<tr>
+							<th>#</th>
+							<th>Clinic</th>
+							<th>Date of Appointment</th>
+							<th>Total Paid</th>
+							<th>Action</th>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>Happy Clinic</td>
+							<td>August 5, 2017</td>
+							<td>₱ 500.00</td>
+							<td><a href="#" class="btn btn-primary btn-sm">View Details</a></td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Happy Clinic</td>
+							<td>August 4, 2017</td>
+							<td>₱ 500.00</td>
+							<td><a href="#" class="btn btn-primary btn-sm">View Details</a></td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>Happy Clinic</td>
+							<td>August 3, 2017</td>
+							<td>₱ 500.00</td>
+							<td><a href="#" class="btn btn-primary btn-sm">View Details</a></td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>Happy Clinic</td>
+							<td>August 2, 2017</td>
+							<td>₱ 500.00</td>
+							<td><a href="#" class="btn btn-primary btn-sm">View Details</a></td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>Happy Clinic</td>
+							<td>August 1, 2017</td>
+							<td>₱ 500.00</td>
+							<td><a href="#" class="btn btn-primary btn-sm">View Details</a></td>
+						</tr>
+					</table>
+				</div>
 			</div>
-        </div>
-        <div class="tab-pane fade in" id="tab2">
-          	<div class="text-center pb-3">
-        		<h2>Appointment History</h2>
-        		<small>Information that is regarding the user is displayed in this context</small>
-        	</div>
-          	<div class="table-responsive">
-				<table class="table table-striped">
-					<tr>
-						<th>#</th>
-						<th>Clinic</th>
-						<th>Doctor</th>
-						<th>Appointment Date</th>
-						<th>Action</th>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>Happy Clinic</td>
-						<td>Dr. Ariessa Lane Chua Ko</td>
-						<td>September 18, 2017 1:00PM</td>
-						<td><button class="btn btn-primary btn-sm">Check</button></td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>Happy Clinic</td>
-						<td>Dr. Joshua R. Oducado</td>
-						<td>September 16, 2017 1:00PM</td>
-						<td><button class="btn btn-primary btn-sm">Check</button></td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td>Happy Clinic</td>
-						<td>Dr. Neimark Braga</td>
-						<td>September 15, 2017 1:00PM</td>
-						<td><button class="btn btn-primary btn-sm">Check</button></td>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td>Sad Clinic</td>
-						<td>Dr. Junica Pelopero</td>
-						<td>September 14, 2017 1:00PM</td>
-						<td><button class="btn btn-primary btn-sm">Check</button></td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>Sad Clinic</td>
-						<td>Dr. Junica Pelopero</td>
-						<td>September 13, 2017 1:00PM</td>
-						<td><button class="btn btn-primary btn-sm">Check</button></td>
-					</tr>
-					<tr>
-						<td>6</td>
-						<td>Sad Clinic</td>
-						<td>Dr. Junica Pelopero</td>
-						<td>September 11, 2017 1:00PM</td>
-						<td><button class="btn btn-primary btn-sm">Check</button></td>
-					</tr>
-					<tr>
-						<td>7</td>
-						<td>Sad Clinic</td>
-						<td>Dr. Junica Pelopero</td>
-						<td>September 9, 2017 1:00PM</td>
-						<td><button class="btn btn-primary btn-sm">Check</button></td>
-					</tr>
-					<tr>
-						<td>8</td>
-						<td>Sad Clinic</td>
-						<td>Dr. Junica Pelopero</td>
-						<td>September 8, 2017 1:00PM</td>
-						<td><button class="btn btn-primary btn-sm">Check</button></td>
-					</tr>
-					<tr>
-						<td>9</td>
-						<td>Sad Clinic</td>
-						<td>Dr. Junica Pelopero</td>
-						<td>September 4, 2017 1:00PM</td>
-						<td><button class="btn btn-primary btn-sm">Check</button></td>
-					</tr>
-					<tr>
-						<td>10</td>
-						<td>Sad Clinic</td>
-						<td>Dr. Junica Pelopero</td>
-						<td>September 1, 2017 1:00PM</td>
-						<td><button class="btn btn-primary btn-sm">Check</button></td>
-					</tr>
-				</table>
-			</div>
-        </div>
-        <div class="tab-pane fade in" id="tab3">
-          	<div class="text-center pb-3">
-        		<h2>Transaction Logs</h2>
-        		<small>Information that is regarding the user is displayed in this context</small>
-        	</div>
-          	<div class="table-responsive">
-			<table class="table table-striped">
-				<tr>
-					<th>#</th>
-					<th>Clinic</th>
-					<th>Date of Appointment</th>
-					<th>Total Paid</th>
-					<th>Action</th>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>Happy Clinic</td>
-					<td>August 5, 2017</td>
-					<td>₱ 500.00</td>
-					<td><a href="#" class="btn btn-primary btn-sm">View Details</a></td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>Happy Clinic</td>
-					<td>August 4, 2017</td>
-					<td>₱ 500.00</td>
-					<td><a href="#" class="btn btn-primary btn-sm">View Details</a></td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>Happy Clinic</td>
-					<td>August 3, 2017</td>
-					<td>₱ 500.00</td>
-					<td><a href="#" class="btn btn-primary btn-sm">View Details</a></td>
-				</tr>
-				<tr>
-					<td>4</td>
-					<td>Happy Clinic</td>
-					<td>August 2, 2017</td>
-					<td>₱ 500.00</td>
-					<td><a href="#" class="btn btn-primary btn-sm">View Details</a></td>
-				</tr>
-				<tr>
-					<td>5</td>
-					<td>Happy Clinic</td>
-					<td>August 1, 2017</td>
-					<td>₱ 500.00</td>
-					<td><a href="#" class="btn btn-primary btn-sm">View Details</a></td>
-				</tr>
-			</table>
+		</div>
 	</div>
 </div>
 
