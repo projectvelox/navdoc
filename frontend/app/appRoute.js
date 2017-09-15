@@ -10,6 +10,12 @@ angular.module('appRoute', ['ngRoute'])
                 //controller: ,
                 //controllerAs: 
             })
+            .when('/admin/doctor-profile/:id', {
+                templateUrl: 'app/pages/admin/doctor-profile.html'
+                //,
+                //controller: ,
+                //controllerAs: 
+            })
 
             //PUBLIC
             .when('/', {

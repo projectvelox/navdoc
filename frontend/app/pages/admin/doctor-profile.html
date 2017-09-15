@@ -1,0 +1,69 @@
+<style type="text/css">
+    .well { border-radius: 0px; }
+    .btn-pref .btn { -webkit-border-radius:0 !important; }
+    .btn-grey{ background-color:#d8d8d8; color: #fff; }
+    .card-avatar img { border-radius: 100%; height: 80px; }
+    .card-btn:hover,  .card-btn:focus { border: 1px solid #002544 !important; background-color: #002544 !important; color: #fff !important;}
+    .card-background { background-image: url(assets/images/sliders/3.jpg);  background-position: 50% 50%; }
+    .card-info { color: #fff; font-size: 18px; background-color: rgba(0, 37, 68, 0.67); margin-top: 10px; padding: 0px 10px;}
+    .d-flex { display: flex; width: 100%; justify-content: center; align-items: center; }
+    .doctor-icons { height: 120px; margin: 0px auto; }
+    .rating-block{ background-color:#fafafa; border:1px solid #efefef; padding:15px 15px 20px 15px; border-radius:3px; }
+    .review-block{ background-color:#fafafa; border:1px solid #efefef; padding:15px; border-radius:3px; margin-bottom:15px; }
+    .review-block-name { font-size: 17px; background-color: rgba(0, 37, 68, 0.93); text-align: center; margin-top: 0px; }
+    .review-block-name a { text-decoration: none; color: #fff; }
+    .review-block-rate { font-size:13px; margin-bottom:15px; }
+    .review-block-title { font-size:15px; font-weight:700; margin-bottom:10px; }
+    .review-block-description { font-size:13px; }
+    .review-img { height: 150px; width: 100%; }
+    @media (max-width: 575px) { .review-img { height: 100%; width: 100%; }  .review-block-rate { font-size: 13px; margin: 15px 0px; }}
+</style>
+
+<div class="p-2" ng-show="userDoctorProfile.loading">
+    <div class="wrap-loading">
+        <div class="loading loading-3"></div>
+    </div>
+</div>
+
+<div class="container pt-3 pb-5" ng-hide="userDoctorProfile.loading">
+    <ol class="breadcrumb">
+        <li><a href="#/user/dashboard">Dashboard</a></li>
+        <li class="active">Joshua R. Oducado</li>
+    </ol>
+    <div class="row">
+        <div class="col-xs-12 col-md-4">
+            <div class="doctor-bordify" style="margin-top: 0px;">
+                <div class="text-center">
+                    <h2>Doctor Info</h2>
+                    <small>Basic information of the doctor and clinic contact</small>
+                </div><hr>
+                <h4>Basic Info</h4>
+                <p><strong>Name:</strong> {{userDoctorProfile.profile.username}}</p>
+                <p><strong>Gender:</strong> {{userDoctorProfile.profile.gender}}</p>
+                <p><strong>Specialty:</strong> <span class="label label-default">{{userDoctorProfile.profile.specialty}}</span></p>
+                <hr>
+                <h4>Clinic Contact</h4>
+                <p><strong>contact:</strong> {{userDoctorProfile.profile.contact_number}}</p>
+                <p><strong>Email:</strong> {{userDoctorProfile.profile.email}}</p>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-8">
+            <div class="card-background">
+                <div class="d-flex" style="height: 150px;">
+                    <div style="text-align: center;">
+                        <div class="card-avatar" >
+                            <img src="http://lorempixel.com/250/250/people">
+                        </div>
+                        <div class="card-info"> <span class="card-title">Joshua R. Oducado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="well">
+            </div>
+
+
+        </div>
+    </div>
+</div>
