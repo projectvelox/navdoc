@@ -14,6 +14,7 @@
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus { border-color: #002544; }
 .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus { background-color: #002544; }
 .navbar-inverse .navbar-toggle { border-color: #002544; }
+.panel { border-radius: 0px; }
 
 /*customized css*/
 body { display: flex; min-height: 100vh; flex-direction: column; }
@@ -43,6 +44,8 @@ main { flex: 1 0 auto; }
 .doctor-sticky-note { height: auto; width: 300px; padding: 20px; background-color: #fff2b5; margin: 20px auto; }
 .doctor-text-background { background-color: rgba(0, 37, 68, 0.88); color: white; padding: 5px; }
 .doctor-white { color: #fff; }
+.icon { -webkit-transition: -webkit-transform .8s ease-in-out; transition: transform .8s ease-in-out; }
+.icons:hover { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
 
 .pt-1 { padding-top: 10px; }
 .pt-2 { padding-top: 20px; }

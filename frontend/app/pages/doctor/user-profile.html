@@ -27,7 +27,7 @@
 
 <div class="container pt-3 pb-5" ng-hide="userDoctorProfile.loading">
     <ol class="breadcrumb">
-        <li><a href="#/admin/dashboard">Dashboard</a></li>
+        <li><a href="#/doctor/dashboard">Dashboard</a></li>
         <li class="active">Joshua R. Oducado</li>
     </ol>
     <div class="row">
@@ -58,42 +58,38 @@
             </div>
         </div>
         <div class="col-xs-12 col-md-8">
-            <h2>Doctor Info</h2>
-            <small>Basic information of the doctor and clinic contact</small>
+            <h2>My Purpose is Here!</h2>
             <div class="pull-right">
                 <div class="btn-group">
                   <a href="#" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-ok"></span> Approve</a>&nbsp
                   <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Decline</a>
                 </div>
-            </div><hr>
-            <div class="row">
-                <div class="col-xs-12 col-md-6">
-                    <h4>Work Info</h4>
-                    <p><strong>Field:</strong> </p>
-                    <p><strong>Specialty:</strong> </p>
-                    <p><strong>PRC:</strong> Male</p>
-                    <p><strong>PMA:</strong> Zarraga, Iloilo</p>
-                    <p><strong>Affiliation:</strong> jojo.ileadtrainings@gmail.com</p>
-                    
-                    <hr><h4>Clinic Info</h4>
-                    <p><strong>Name:</strong> Happy Clinic</p>
-                    <p><strong>City:</strong> Iloilo</p>
-                    <p><strong>Address:</strong> San Jose, Iloilo</p>
-
-                    <hr><h4>Clinic Hours</h4>
-                    <p><strong>Sunday:</strong> 8:00AM - 4:00PM</p>
-                    <p><strong>Monday:</strong> 8:00AM - 4:00PM</p>
-                    <p><strong>Tuesday:</strong> 8:00AM - 4:00PM</p>
-                    <p><strong>Wednesday:</strong> 8:00AM - 4:00PM</p>
-                    <p><strong>Thursday:</strong> 8:00AM - 4:00PM</p>
-                    <p><strong>Friday:</strong> 8:00AM - 4:00PM</p>
-                    <p><strong>Saturday:</strong> 8:00AM - 4:00PM</p>
-                </div>
-                <div class="col-xs-12 col-md-4">
-                    <div class="col-xs-12 col-md-4">
-                        <div id="map" style="height: 300px;"></div>
-                    </div>
-                </div>
+            </div>
+            <h4><small>Schedule of Appointment: September 13, 2017</small></h4>
+            <hr>
+            <div class="text-center pt-3 pb-2">
+                <h4>Refer Outpatient to Another Doctor</h4>
+                <small>Hey? Are you too busy with life? You can always refer this patient to someone else.</small>
+            </div>
+            <div class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <th>#</th>
+                        <th>Avatar</th>
+                        <th>Doctor</th>
+                        <th>Field</th>
+                        <th>Specialization</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr ng-repeat="name in [0, 1, 2, 3, 4, 5] track by $index">
+                        <td>{{($index + 1)}}</td>
+                        <td><img src="http://lorempixel.com/50/50/people"></td>
+                        <td>Dr. Marie Ariessa Lane Chua Ko</td>
+                        <td>Internal Medicine</td>
+                        <td>2nd Degree Blood</td>
+                        <td><button class="btn btn-primary btn-xs">Refer</button></td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
