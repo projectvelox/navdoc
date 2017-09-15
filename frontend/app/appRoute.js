@@ -8,9 +8,12 @@ angular.module('appRoute', ['ngRoute'])
                 templateUrl: 'app/pages/public/home.html'
             })
 
-            //PUBLIC
             .when('/signup', {
                 templateUrl: 'app/pages/public/signup.html'
+            })
+
+            .when('/login', {
+                templateUrl: 'app/pages/public/login.html'
             })
 
 
