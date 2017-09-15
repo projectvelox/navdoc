@@ -61,7 +61,7 @@
                                 <tr ng-repeat="doctor in clinicProfile.profile.doctors track by $index">
                                     <td>{{($index + 1)}}</td>
                                     <td>{{doctor.username}}</td>
-                                    <td><span class="label label-default">Cardiology</span></td>
+                                    <td><span class="label label-default">{{doctor.specialty}}</span></td>
                                     <td><a href="#/user/doctor-profile/{{doctor.uid}}" class="btn btn-primary btn-sm">View</a></td>
                                 </tr>
                         </div>
