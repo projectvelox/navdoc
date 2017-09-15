@@ -29,6 +29,34 @@ angular.module('mapService', [])
                         bounds.extend(path[i]);
                     return bounds;
                 }
+            },
+            asyncMethods: {
+                getUserLocation: function (callback) {
+                    if(geolocation){
+                        if(locationCurrentPosition) callback(null, locationCurrentPosition);
+                        else geolocation.getCurrentPosition(function (position) {
+                            callback(null, position);
+                        }, callback, {
+                            enableHighAccuracy: true
+                        });
+                    } else callback('Geolocation is not supported by this browser.');
+                },
+                watchUserLocation: function (watch) {
+                    locationWatcher = watch;
+                    if (geolocation){
+                        if(!locationWatchID) {
+                            locationWatchID = geolocation.watchPosition(function (position) {
+                                locationCurrentPosition = position;
+                                locationWatcher(null, position);
+                            }, function (err) {
+                                locationWatcher(err);
+                            }, {
+                                enableHighAccuracy: true
+                            });
+                        } else locationWatcher = watch;
+                    }
+                    else callback('Geolocation is not supported by this browser.');
+                }
             }
         };
         return service;
