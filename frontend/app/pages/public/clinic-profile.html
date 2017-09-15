@@ -1,0 +1,77 @@
+<div class="profile-map-container">
+    <div id="map" style="height: 100%; width: 100%;"></div>
+    <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
+        <div class="btn-group" role="group" ng-repeat="travelMode in clinicProfile.travelModes track by $index">
+            <button type="button" class="btn btn-default card-btn" ng-click="clinicProfile.getDirection(travelMode.googleConstant);">
+                <span class="material-icons">{{travelMode.materialIcon}}</span><br />
+                {{travelMode.name}}
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="p-3"></div>
+<div class="container pt-3 pb-5">
+	<ol class="breadcrumb">
+		<li><a href="#/users/dashboard">Dashboard</a></li>
+		<li class="active">Happy Clinic Profile</li>        
+	</ol>
+
+	<div class="row">
+		<div class="col-xs-12 col-md-4">
+			<div class="doctor-bordify" style="margin-top: 0px;">
+				<div class="text-center">
+					<h2>Clinic Info</h2>
+					<small>Basic and contact information of the clinic</small>
+				</div><hr>
+				<p><strong>Clinic:</strong> Happy Clinic</p>
+				<p><strong>Clinic Hours:</strong></p>
+				<ul>
+					<li><strong>M/W/F:</strong>  10:00AM - 11:00AM</li>
+					<li><strong>T/TH:</strong> 8:00AM - 4:00PM</li>
+				</ul>
+				<p><strong>Address:</strong> <br>Happy Homes Subdivision, Mahogany Street, Zarraga, Iloilo</p>
+				<hr>
+				<p><strong>Mobile:</strong> 09296887257</p>
+				<p><strong>Phone:</strong> 320-7204</p>
+				<p><strong>Email:</strong> happyclinic@gmail.com</p>
+			</div>
+		</div>
+		<div class="col-xs-12 col-md-8">
+			<div class="doctor-bordify" style="margin-top: 0px;">
+				<div class="text-center">
+					<h2>List of Doctors</h2>
+					<small>List of doctors working here at Happy Clinic</small>
+				</div><hr>
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<tr>
+							<th>#</th>
+							<th>Doctor Name</th>
+							<th>Specialty</th>
+							<th>Action</th>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>Dr. Ariessa Lane Chua Ko</td>
+							<td><span class="label label-default">Cardiology</span></td>
+							<td><a href="#/user/doctor-profile/2" class="btn btn-primary btn-sm">View</a></td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Dr. Joshua R. Oducado</td>
+							<td><span class="label label-default">Neurology</span></td>
+							<td><a href="#/user/doctor-profile/2" class="btn btn-primary btn-sm">View</a></td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>Dr. Neimark Braga</td>
+							<td><span class="label label-default">Pulmonology</span></td>
+							<td><a href="#/user/doctor-profile/2" class="btn btn-primary btn-sm">View</a></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

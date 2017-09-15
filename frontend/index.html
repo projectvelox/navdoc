@@ -61,7 +61,7 @@
                         </ul>
                         <ul class="nav navbar-nav" ng-show="main.user">
                             <li class="dropdown">
-                              <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Joshua R. Oducado <span class="caret"></span></a>
+                              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span>{{main.user.username}}<span class="caret"></span></a>
                               <ul class="dropdown-menu">
                                 <li><a href="#{{main.getUserPath() + '/dashboard'}}">Dashboard</a></li>
                                 <li role="separator" class="divider"></li>
@@ -76,7 +76,12 @@
             </nav>
         </header>
         <main>
-            <ng-view ng-hide="main.pageLoading"></ng-view>
+            <div class="p-5" ng-show="main.pageLoading">
+                <div class="wrap-loading">
+                    <div class="loading loading-3"></div>
+                </div>
+            </div>
+            <ng-view ng-show="!main.pageLoading"></ng-view>
         </main>
         <footer>
             <div class="container">

@@ -1,16 +1,46 @@
-/*modified bootstrap*/
-.navbar-inverse {background-color: #002544;border-color: #002544; border-radius: 0px; margin-bottom: 0px;}
+/*bootstrap transposed*/
+.breadcrumb { background: #002544; border-radius: 0px; }
+.breadcrumb a { color: #ddd; }
+.breadcrumb a:hover, .breadcrumb a:active, .breadcrumb a:hover { color: #fff; text-decoration: none; }
+.breadcrumb > .active { color: #ff9e21; }
 
+.navbar-inverse {background-color: #002544;border-color: #002544; border-radius: 0px; margin-bottom: 0px;}
+.form-control { border-radius: 0px; }
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td { border-top: 1px solid #eee; }
+.modal { text-align: center; padding: 0!important; }
+.modal:before { content: ''; display: inline-block; height: 100%; vertical-align: middle; margin-right: -4px; }
+.modal-dialog { display: inline-block; text-align: left; vertical-align: middle; }
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus { color: #fff; background-color: #002544; }
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus { border-color: #002544; }
+.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus { background-color: #002544; }
+.navbar-inverse .navbar-toggle { border-color: #002544; }
 
 /*customized css*/
 body { display: flex; min-height: 100vh; flex-direction: column; }
 main { flex: 1 0 auto; }
 
+.admin-card-container { height: auto; width: 500px; border: 1px solid #eee; background-color: #fbfbfb; display: inline-block; margin: 5px; }
+.admin-icon-stat-container img { height: 200px; width: 500px; }
 .doctor-about-container {background-color: #002544;}
+.doctor-banner { display: flex; height: 100%; justify-content: center; align-items: center;text-align: center;}
+.doctor-border-right { border-right: 1px solid #eee; }
+.doctor-bordify { width: auto; height: auto; padding: 15px; border: 1px solid #eee; margin: 10px 0px; }
+.doctor-card-container a { text-decoration: none; color: #333; }
+.doctor-card-container { height: auto; width: 200px; border: 1px solid #eee; background-color: #fbfbfb; display: inline-block; margin: 5px; }
+.doctor-card-container img:hover { transform: scale(1.1); }
+.doctor-flat { border-radius: 0px; }
+.doctor-icon-container { height: 100%; width: 100%; padding: 10px; text-align: center; }
+.doctor-icon-container img { height: 100px; }
 .doctor-icons { height: 150px;width: auto; -webkit-transition: -webkit-transform .8s ease-in-out; transition: transform .8s ease-in-out; }
 .doctor-icons:hover { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+.doctor-image-container { height: 200px; width: auto; margin: 0px auto; border: 1px solid #eee; padding: 15px; text-align: center; }
+.doctor-image-container img { height: 100%; width: auto; }
 .doctor-map-container { height: 100vh; width: auto; background-color: #eee; }
+.profile-map-container { height: 50vh; width: auto; background-color: #eee; }
+.doctor-sticky-header { height: 20px; margin: -20px -20px 0px -20px; background-color: #ffb900;}
 .doctor-orange { color: #f1811e; }
+.doctor-sticky-note { height: auto; width: 300px; padding: 20px; background-color: #fff2b5; margin: 20px auto; }
+.doctor-text-background { background-color: rgba(0, 37, 68, 0.88); color: white; padding: 5px; }
 .doctor-white { color: #fff; }
 
 .pt-1 { padding-top: 10px; }
@@ -30,6 +60,36 @@ main { flex: 1 0 auto; }
 .p-3 { padding: 30px; }
 .p-4 { padding: 40px; }
 .p-5 { padding: 50px; }
+
+
+/*preloader*/
+@keyframes spin {
+  0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-moz-keyframes spin {
+  0% { -moz-transform: rotate(0deg);  transform: rotate(0deg); }
+  100% { -moz-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-o-keyframes spin {
+  0% { -o-transform: rotate(0deg); transform: rotate(0deg); }
+  100% { -o-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-ms-keyframes spin {
+  0% { -ms-transform: rotate(0deg); transform: rotate(0deg); }
+  100% { -ms-transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+.wrap-loading { width: 100%; height: 100%; text-align: center; }
+.loading { margin: auto; border-radius: 50%; animation: spin 750ms infinite linear; -webkit-animation: spin 750ms infinite linear; -moz-animation: spin 750ms infinite linear; -o-animation: spin 750ms infinite linear; -ms-animation: spin 750ms infinite linear; }
+.loading-1 { width: 24px; height: 24px; border: 2px solid #ebebeb; border-top-color: #333; }
+.loading-2 { width: 40px; height: 40px; border: 3px solid #ebebeb;  border-top-color: #333; }
+.loading-3 { width: 50px; height: 50px; border: 3px solid #ebebeb; border-top-color: #333; }
+.loading-4 { width: 70px; height: 70px;  border: 4px solid #ebebeb; border-top-color: #333; }
 
 
 /*snippets*/
@@ -58,3 +118,31 @@ footer {background-color: #002544;min-height:350px;}
 .bottom_ul li:after { content:"/"; color:#FFF; margin-right:8px; margin-left:8px;}
 .bottom_ul li a { color:#FFF;  font-size:12px;}
 
+
+/*media queries*/
+/*extra small screens*/
+@media (max-width: 575px) {
+	.doctor-border-right { border-right: 0px; }
+  .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td { border-top: 0px; }
+}
+
+/*small screens*/
+@media (min-width: 576px) and (max-width: 767px) {
+	.doctor-border-right { border-right: 0px;  }
+  .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td { border-top: 0px; }
+}
+
+/*medium screens*/
+@media (min-width: 768px) and (max-width: 991px) {
+	.doctor-border-right { border-right: 0px;  }
+}
+
+/*large screens*/
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}
