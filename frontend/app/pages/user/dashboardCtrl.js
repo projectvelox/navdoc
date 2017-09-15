@@ -1,5 +1,5 @@
 angular.module('userControllers')
-    .controller('userDashboardCtrl', function (mapSv) {
+    .controller('userDashboardCtrl', function ($scope, mapSv) {
         var dashboard = this;
 
         //components
@@ -21,6 +21,9 @@ angular.module('userControllers')
         });
         dashboard.directionRenderer = new mapSv.classes.directionsRenderer({
             map: dashboard.map
+        });
+        dashboard.searchBoxControl = new mapSv.classes.searchBoxControl({map: dashboard.map}, function (keyword) {
+             alert(keyword);
         });
         dashboard.infoWindow = new google.maps.InfoWindow();
 
@@ -110,5 +113,10 @@ angular.module('userControllers')
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             });
+        });
+        $scope.$on('pageValidated', function () {
+            setTimeout(function () {
+                google.maps.event.trigger(dashboard.map, 'resize');
+            }, 2000);
         });
     });

@@ -483,6 +483,56 @@ angular.module('mapService', [])
 
                     //set to map
                     options.map.controls[google.maps.ControlPosition[options.position]].push(locationControl.element);
+                },
+                searchBoxControl: function (options, searchCallback) {
+                    options = options || {};
+                    options.map = options.map || {};
+                    options.position = options.position || 'TOP_LEFT';
+                    options.placeholder = options.placeholder || 'Search';
+                    searchCallback = searchCallback || function () {};
+
+                    //elements
+                    var elements = {
+                        form: document.createElement('form'),
+                        inputGroup: document.createElement('div'),
+                        input: document.createElement('input'),
+                        inputGroupBtn: document.createElement('div'),
+                        button: document.createElement('button'),
+                        i: document.createElement('i')
+                    };
+
+                    //initialize elements
+                    $(elements.i)
+                        .attr('class', 'glyphicon glyphicon-search');
+
+                    $(elements.button)
+                        .attr('class', 'btn btn-default')
+                        .attr('type', 'submit')
+                        .append(elements.i);
+
+                    $(elements.inputGroupBtn)
+                        .attr('class', 'input-group-btn')
+                        .append(elements.button);
+
+                    $(elements.input)
+                        .attr('class', 'form-control')
+                        .attr('type', 'text')
+                        .attr('placeholder', options.placeholder);
+
+                    $(elements.inputGroup)
+                        .attr('class', 'input-group')
+                        .append(elements.input)
+                        .append(elements.inputGroupBtn);
+
+                    $(elements.form)
+                        .append(elements.inputGroup)
+                        .css('margin', '10px')
+                        .css('width', '50vh')
+                        .css('min-width', '250px')
+                        .on('submit', function () {
+                            searchCallback($(elements.input).val());
+                        });
+                    options.map.controls[google.maps.ControlPosition[options.position]].push(elements.form);
                 }
             }
         };
