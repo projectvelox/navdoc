@@ -23,13 +23,15 @@
 
         <!--angular app-->
         <script type="text/javascript" src="app/app.js"></script>
+        <script type="text/javascript" src="app/appRoute.js"></script>
+
     </head>
-    <body>
+    <body ng-app="app">
         <header>
 
         </header>
         <main>
-
+            <ng-view></ng-view>
         </main>
         <footer>
 
