@@ -56,13 +56,6 @@ angular.module('appRoute', ['ngRoute'])
                 //controllerAs: ''
             })
 
-            .when('/user/dashboard', {
-                templateUrl: 'app/pages/user/dashboard.html'
-                //,
-                //controller: '',
-                //controllerAs: ''
-            })
-
             .when('/user/doctor-profile/:id', {
                 templateUrl: 'app/pages/user/doctor-profile.html'
                 //,

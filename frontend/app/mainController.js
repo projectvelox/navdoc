@@ -41,11 +41,11 @@ angular.module('mainController', [])
                             if(data.error) throw data;
                             else main.user = data;
                         }).catch(function () {
-                        main.user = undefined;
-                    }).finally(function () {
-                        main.pageLoading = false;
-                        if(!isAuthorized()) $location.path('/');
-                    });
+                            main.user = undefined;
+                        }).finally(function () {
+                            main.pageLoading = false;
+                            if(!isAuthorized()) $location.path('/');
+                        });
                 }
             }
         });
