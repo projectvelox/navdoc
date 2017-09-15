@@ -52,10 +52,10 @@ angular.module('appRoute', ['ngRoute'])
             })
 
             .when('/user/doctor-profile/:id', {
-                templateUrl: 'app/pages/user/doctor-profile.html'
-                //,
-                //controller: '',
-                //controllerAs: ''
+                templateUrl: 'app/pages/user/doctor-profile.html',
+                controller: 'userDoctorProfileCtrl',
+                controllerAs: 'userDoctorProfile',
+                allowedUsers: ['user']
             })
 
 
