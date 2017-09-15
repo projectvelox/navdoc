@@ -6,12 +6,35 @@
 body { display: flex; min-height: 100vh; flex-direction: column; }
 main { flex: 1 0 auto; }
 
+.admin-card-container { height: auto; width: 500px; border: 1px solid #eee; background-color: #fbfbfb; display: inline-block; margin: 5px; }
+.admin-icon-stat-container img { height: 200px; width: 500px; }
 .doctor-about-container {background-color: #002544;}
+.doctor-banner { display: flex; height: 100%; justify-content: center; align-items: center;text-align: center;}
+.doctor-border-right { border-right: 1px solid #eee; }
+.doctor-bordify { width: auto; height: auto; padding: 15px; border: 1px solid #eee; margin: 10px 0px; }
+.doctor-card-container a { text-decoration: none; color: #333; }
+.doctor-card-container { height: auto; width: 200px; border: 1px solid #eee; background-color: #fbfbfb; display: inline-block; margin: 5px; }
+.doctor-card-container img:hover { transform: scale(1.1); }
+.doctor-flat { border-radius: 0px; }
+.doctor-icon-container { height: 100%; width: 100%; padding: 10px; text-align: center; }
+.doctor-icon-container img { height: 100px; }
 .doctor-icons { height: 150px;width: auto; -webkit-transition: -webkit-transform .8s ease-in-out; transition: transform .8s ease-in-out; }
 .doctor-icons:hover { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+.doctor-image-container { height: 200px; width: auto; margin: 0px auto; border: 1px solid #eee; padding: 15px; text-align: center; }
+.doctor-image-container img { height: 100%; width: auto; }
 .doctor-map-container { height: 100vh; width: auto; background-color: #eee; }
+.profile-map-container { height: 50vh; width: auto; background-color: #eee; }
+.doctor-sticky-header { height: 20px; margin: -20px -20px 0px -20px; background-color: #ffb900;}
 .doctor-orange { color: #f1811e; }
+.doctor-sticky-note { height: auto; width: 300px; padding: 20px; background-color: #fff2b5; margin: 20px auto; }
+.doctor-text-background { background-color: rgba(0, 37, 68, 0.88); color: white; padding: 5px; }
 .doctor-white { color: #fff; }
+
+
+
+
+
+
 
 .pt-1 { padding-top: 10px; }
 .pt-2 { padding-top: 20px; }
