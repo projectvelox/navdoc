@@ -32,6 +32,12 @@ angular.module('appRoute', ['ngRoute'])
                 //controller: '',
                 //controllerAs: ''
             })
+            .when('/user/feedback', {
+                templateUrl: 'app/pages/user/feedback.html'
+                //,
+                //controller: '',
+                //controllerAs: ''
+            })
 
             .otherwise({redirectTo: '/'});
     });
