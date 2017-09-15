@@ -1,7 +1,6 @@
 angular.module('mainController', [])
     .controller('mainCtrl', function ($scope, $location, serverSv, appSv) {
         var main = this;
-
         main.pageLoading = false;
         main.getUserPath = function () {
             if(main.user) return appSv.getUserPath(main.user.account_type);
@@ -38,13 +37,14 @@ angular.module('mainController', [])
                     serverSv.auth.me()
                         .then(function (response) {
                             var data = response.data;
-                            if(data.error) throw data;
+                            if (data.error) throw data;
                             else main.user = data;
                         }).catch(function () {
                             main.user = undefined;
                         }).finally(function () {
                             main.pageLoading = false;
-                            if(!isAuthorized()) $location.path('/');
+                            if (!isAuthorized()) $location.path('/');
+                            $scope.$broadcast('pageValidated', {});
                         });
                 }
             }
