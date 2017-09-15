@@ -5,24 +5,21 @@ angular.module('appRoute', ['ngRoute'])
 
             //PUBLIC
             .when('/', {
-                templateUrl: 'app/pages/public/home.html'
-                //,
-                //controller: '',
-                //controllerAs: ''
+                templateUrl: 'app/pages/public/home.html',
+                controller: 'homeCtrl',
+                controllerAs: 'home'
             })
 
             .when('/signup', {
-                templateUrl: 'app/pages/public/signup.html'
-                //,
-                //controller: '',
-                //controllerAs: ''
+                templateUrl: 'app/pages/public/signup.html',
+                controller: 'signupCtrl',
+                controllerAs: 'signup'
             })
 
             .when('/login', {
-                templateUrl: 'app/pages/public/login.html'
-                //,
-                //controller: '',
-                //controllerAs: ''
+                templateUrl: 'app/pages/public/login.html',
+                controller: 'loginCtrl',
+                controllerAs: 'login'
             })
 
             .when('/clinic-profile/:id', {
@@ -34,6 +31,17 @@ angular.module('appRoute', ['ngRoute'])
 
 
             //USERS
+            .when('/user/dashboard', {
+                templateUrl: 'app/pages/user/dashboard.html',
+                controller: 'userDashboardCtrl',
+                controllerAs: 'dashboard',
+                allowedUsers: ['user']
+            })
+
+            .when('/user/feedback', {
+                templateUrl: 'app/pages/user/feedback.html'
+            })
+
             .when('/user/appointment/:id', {
                 templateUrl: 'app/pages/user/appointment.html'
                 //,
@@ -43,13 +51,6 @@ angular.module('appRoute', ['ngRoute'])
 
             .when('/user/appointment-history', {
                 templateUrl: 'app/pages/user/appointment-history.html'
-                //,
-                //controller: '',
-                //controllerAs: ''
-            })
-
-            .when('/user/dashboard', {
-                templateUrl: 'app/pages/user/dashboard.html'
                 //,
                 //controller: '',
                 //controllerAs: ''

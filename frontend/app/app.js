@@ -1,4 +1,9 @@
 angular.module('app', [
     'appRoute',
-    'mainController'
+    'mainController',
+    'serverService',
+    'mapService',
+    'appService',
+    'publicControllers',
+    'userControllers'
 ]);
