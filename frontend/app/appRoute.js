@@ -11,10 +11,9 @@ angular.module('appRoute', ['ngRoute'])
             })
 
             .when('/signup', {
-                templateUrl: 'app/pages/public/signup.html'
-                //,
-                //controller: '',
-                //controllerAs: ''
+                templateUrl: 'app/pages/public/signup.html',
+                controller: 'signupCtrl',
+                controllerAs: 'signup'
             })
 
             .when('/login', {

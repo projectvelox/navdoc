@@ -22,6 +22,12 @@ angular.module('serverService', [])
                     if(newKey) sessionStorage.setItem('authKey', newKey);
                     else return sessionStorage.getItem('authKey');
                 },
+                signUp: function (data) {
+                    return service.request('/account/register', {
+                        method: 'POST',
+                        data: data
+                    });
+                },
                 login: function (data) {
                     return service.request('/account/login', {
                         method: 'POST',
