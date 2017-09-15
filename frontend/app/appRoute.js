@@ -115,6 +115,12 @@ angular.module('appRoute', ['ngRoute'])
                 //controller: '',
                 //controllerAs: ''
             })
+            .when('/doctor/dashboard', {
+                templateUrl: 'app/pages/doctor/dashboard.html'
+                //,
+                //controller: '',
+                //controllerAs: ''
+            })
 
             .otherwise({redirectTo: '/'});
     });
