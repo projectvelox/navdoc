@@ -45,10 +45,10 @@ angular.module('appRoute', ['ngRoute'])
 
             //USERS
             .when('/user/appointment/:id', {
-                templateUrl: 'app/pages/user/appointment.html'
-                //,
-                //controller: '',
-                //controllerAs: ''
+                templateUrl: 'app/pages/user/appointment.html',
+                controller: 'appointmentCtrl',
+                controllerAs: 'appointment',
+                allowedUsers: ['user']
             })
 
             .when('/user/appointment-history', {

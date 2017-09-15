@@ -31,8 +31,16 @@ angular.module('mainController', [])
                 else return next.allowedUsers.indexOf(main.user.account_type) > -1;
             };
             var resolveUser = function () {
-                
-                //resolve here!
+                switch (main.user.account_type){
+                    case 'user':
+                        break;
+                    case 'doctor':
+                        if(!main.user.clinic && (next.originalPath != '/doctor/user-details')){
+                            $location.path('/doctor/user-details');
+                            event.preventDefault();
+                        }
+                        break;
+                }
                 $scope.$broadcast('pageValidated', {});
             };
             if(!next.redirectTo){

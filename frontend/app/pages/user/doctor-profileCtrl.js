@@ -31,7 +31,7 @@ angular.module('userControllers')
             var form = {
                 doctor: userDoctorProfile.profile.uid,
                 purpose: userDoctorProfile.appointmentForm.purpose,
-                date: userDoctorProfile.appointmentForm.date.getTime()
+                date: [userDoctorProfile.appointmentForm.date.getTime()]
             };
             serverSv.request('/appointment/request', {
                 method: 'POST',
