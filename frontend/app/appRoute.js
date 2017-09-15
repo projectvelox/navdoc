@@ -88,10 +88,9 @@ angular.module('appRoute', ['ngRoute'])
             })
 
             .when('/user/transaction-logs', {
-                templateUrl: 'app/pages/user/transaction-logs.html'
-                //,
-                //controller: '',
-                //controllerAs: ''
+                templateUrl: 'app/pages/user/transaction-logs.html',
+                controller: 'userTransactionLogsCtrl',
+                controllerAs: 'transactions'
             })
 
             .when('/user/clinic-list', {
@@ -116,10 +115,9 @@ angular.module('appRoute', ['ngRoute'])
             })
 
             .when('/user/appointments/upcoming', {
-                templateUrl: 'app/pages/user/appointments/upcoming.html'
-                //,
-                //controller: '',
-                //controllerAs: ''
+                templateUrl: 'app/pages/user/appointments/upcoming.html',
+                controller: 'userUpcomingAppointmentsCtrl',
+                controllerAs: 'appointments'
             })
 
             .when('/user/appointments/history', {
