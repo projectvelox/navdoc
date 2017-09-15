@@ -74,7 +74,7 @@ angular.module('appRoute', ['ngRoute'])
                 //controllerAs: ''
             })
 
-            .when('/user/searched-result', {
+            .when('/user/transaction-logs', {
                 templateUrl: 'app/pages/user/transaction-logs.html'
                 //,
                 //controller: '',
