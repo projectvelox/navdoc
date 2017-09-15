@@ -5,5 +5,6 @@ angular.module('app', [
     'mapService',
     'appService',
     'publicControllers',
-    'userControllers'
+    'userControllers',
+    'doctorControllers'
 ]);

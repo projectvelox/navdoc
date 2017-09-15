@@ -23,7 +23,8 @@ angular.module('userControllers')
         userDoctorProfile.resetAppointmentForm = function () {
             userDoctorProfile.appointmentForm = {
                 purpose: '',
-                date: new Date()
+                date: new Date(),
+                trans_type: 'bank'
             };
         };
         userDoctorProfile.submitAppointmentForm = function () {
@@ -31,8 +32,10 @@ angular.module('userControllers')
             var form = {
                 doctor: userDoctorProfile.profile.uid,
                 purpose: userDoctorProfile.appointmentForm.purpose,
-                date: [userDoctorProfile.appointmentForm.date.getTime()]
+                date: [userDoctorProfile.appointmentForm.date.getTime()],
+                trans_type: userDoctorProfile.appointmentForm.trans_type
             };
+            console.log(form);
             serverSv.request('/appointment/request', {
                 method: 'POST',
                 data: form

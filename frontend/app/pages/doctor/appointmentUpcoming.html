@@ -1,0 +1,22 @@
+<div class="container pt-3 pb-5">
+    <h1>Upcoming Appointments</h1>
+
+    <hr />
+    <div class="row">
+        <div class="col-sm-12 col-lg-6">
+            <div class="list-group">
+                <div ng-repeat="appointment in appointmentUpcoming.list track by $index" class="list-group-item">
+                    <p>{{appointment.user.username}}<br />
+                        purpose: {{appointment.purpose}} <br />
+                        payment method: {{appointment.trans_type}} <br />
+                        <small>{{appointmentRequests.convertDate(appointment.date[appointment.date.length - 1]) | date : format : timezone}}</small>
+                    </p>
+                    <div class="text-right">
+                        <button ng-click="appointmentUpcoming.acknowledge($index);" class="btn btn-success btn-sm">Acknowledge</button>
+                    </div>
+                </div>
+            </div>
+            <p ng-show="appointmentUpcoming.list.length < 1">No upcoming appointments.</p>
+        </div>
+    </div>
+</div>

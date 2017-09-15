@@ -1,0 +1,18 @@
+<div class="container pt-3 pb-5">
+    <h1>Appointments History</h1>
+
+    <hr />
+    <div class="row">
+        <div class="col-sm-12 col-lg-6">
+            <div class="list-group">
+                <a href="#" class="list-group-item" ng-repeat="appointment in appointmentHistory.list track by $index">
+                    <p>{{appointment.user.username}}<br />
+                        {{appointment.purpose}} <br />
+                        <small>{{appointmentHistory.convertDate(appointment.date[appointment.date.length - 1]) | date : format : timezone}}</small>
+                    </p>
+                </a>
+            </div>
+            <p ng-show="appointmentHistory.list.length < 1">No History.</p>
+        </div>
+    </div>
+</div>

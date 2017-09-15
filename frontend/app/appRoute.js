@@ -10,6 +10,7 @@ angular.module('appRoute', ['ngRoute'])
                 //controller: ,
                 //controllerAs: 
             })
+
             .when('/admin/doctor-profile/:id', {
                 templateUrl: 'app/pages/admin/doctor-profile.html'
                 //,
@@ -116,6 +117,48 @@ angular.module('appRoute', ['ngRoute'])
             })
 
             //DOCTORS
+            .when('/doctor/dashboard', {
+                templateUrl: 'app/pages/doctor/dashboard.html'
+                //,
+                //controller: '',
+                //controllerAs: ''
+            })
+
+            .when('/doctor/appointment/requests', {
+                templateUrl: 'app/pages/doctor/appointmentRequests.html',
+                controller: 'doctorAppointmentRequestsCtrl',
+                controllerAs: 'appointmentRequests'
+            })
+
+            .when('/doctor/appointment/upcoming', {
+                templateUrl: 'app/pages/doctor/appointmentUpcoming.html',
+                controller: 'doctorAppointmentUpcomingCtrl',
+                controllerAs: 'appointmentUpcoming'
+            })
+
+            .when('/doctor/appointment/history', {
+                templateUrl: 'app/pages/doctor/appointmentHistory.html',
+                controller: 'doctorAppointmentHistoryCtrl',
+                controllerAs: 'appointmentHistory'
+            })
+
+            .when('/doctor/settings', {
+                templateUrl: 'app/pages/doctor/settings.html'
+                //,
+                //controller: '',
+                //controllerAs: ''
+            })
+
+            .when('/doctor/appointment-details/:id', {
+                templateUrl: 'app/pages/doctor/appointment.html'
+                //,
+                //controller: '',
+                //controllerAs: ''
+            })
+
+
+
+
             .when('/doctor/appointments', {
                 templateUrl: 'app/pages/doctor/appointments.html'
                 //,
@@ -128,12 +171,7 @@ angular.module('appRoute', ['ngRoute'])
                 //controller: '',
                 //controllerAs: ''
             })
-            .when('/doctor/dashboard', {
-                templateUrl: 'app/pages/doctor/dashboard.html'
-                //,
-                //controller: '',
-                //controllerAs: ''
-            })
+
             .when('/doctor/user-profile/:id', {
                 templateUrl: 'app/pages/doctor/user-profile.html'
                 //,

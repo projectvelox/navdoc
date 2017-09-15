@@ -1,0 +1,23 @@
+<div class="container pt-3 pb-5">
+    <h1>Patient Requests</h1>
+
+    <hr />
+    <div class="row">
+        <div class="col-sm-12 col-lg-6">
+            <div class="list-group" ng-repeat="appointment in appointmentRequests.list track by $index">
+                <div class="list-group-item">
+                    <p>{{appointment.user.username}}<br />
+                        purpose: {{appointment.purpose}} <br />
+                        payment method: {{appointment.trans_type}} <br />
+                        <small>{{appointmentRequests.convertDate(appointment.date[appointment.date.length - 1]) | date : format : timezone}}</small>
+                    </p>
+                    <div class="text-right">
+                        <button ng-click="appointmentRequests.accept($index);" class="btn btn-success btn-sm">Accept</button>
+                        <button ng-click="appointmentRequests.decline($index);" class="btn btn-danger btn-sm">Decline</button>
+                    </div>
+                </div>
+            </div>
+            <p ng-show="appointmentRequests.list.length < 1">No requests yet.</p>
+        </div>
+    </div>
+</div>
