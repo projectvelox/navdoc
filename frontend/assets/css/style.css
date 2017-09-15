@@ -1,6 +1,19 @@
-/*modified bootstrap*/
-.navbar-inverse {background-color: #002544;border-color: #002544; border-radius: 0px; margin-bottom: 0px;}
+/*bootstrap transposed*/
+.breadcrumb { background: #002544; border-radius: 0px; }
+.breadcrumb a { color: #ddd; }
+.breadcrumb a:hover, .breadcrumb a:active, .breadcrumb a:hover { color: #fff; text-decoration: none; }
+.breadcrumb > .active { color: #ff9e21; }
 
+.navbar-inverse {background-color: #002544;border-color: #002544; border-radius: 0px; margin-bottom: 0px;}
+.form-control { border-radius: 0px; }
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td { border-top: 1px solid #eee; }
+.modal { text-align: center; padding: 0!important; }
+.modal:before { content: ''; display: inline-block; height: 100%; vertical-align: middle; margin-right: -4px; }
+.modal-dialog { display: inline-block; text-align: left; vertical-align: middle; }
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus { color: #fff; background-color: #002544; }
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus { border-color: #002544; }
+.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus { background-color: #002544; }
+.navbar-inverse .navbar-toggle { border-color: #002544; }
 
 /*customized css*/
 body { display: flex; min-height: 100vh; flex-direction: column; }
