@@ -4,5 +4,6 @@ angular.module('app', [
     'serverService',
     'mapService',
     'appService',
-    'publicControllers'
+    'publicControllers',
+    'userControllers'
 ]);

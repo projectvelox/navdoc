@@ -28,6 +28,131 @@ angular.module('mapService', [])
                     for(var i = 0; i < path.length; i++)
                         bounds.extend(path[i]);
                     return bounds;
+                },
+                openTravelModePicker: function (callback) {
+                    var title = document.createElement('div');
+                    var header = document.createElement('div');
+                    var body = document.createElement('div');
+                    var footer = document.createElement('div');
+                    var content = document.createElement('div');
+                    var dialog = document.createElement('div');
+                    var modal = document.createElement('div');
+                    var result = null;
+                    $(title).html('Select Travel Mode')
+                        .attr('class','modal-title');
+                    $(header).attr('class','modal-header')
+                        .append(title);
+                    $(body).attr('class','modal-body');
+                    $(footer).attr('class','modal-footer');
+                    $(content).attr('class','modal-content')
+                        .append(header)
+                        .append(body)
+                        .append(footer);
+                    $(dialog).attr('class','modal-dialog')
+                        .attr('role','document')
+                        .append(content);
+                    $(modal).attr('class','modal fade')
+                        .attr('tabindex','-1')
+                        .attr('role','dialog')
+                        .append(dialog)
+                        .on('hidden.bs.modal', function () {
+                            $(modal).remove();
+                            callback(result);
+                        })
+                        .modal('show');
+                    $('body').append(modal);
+
+                    //picker
+                    var listGroup = document.createElement('div');
+                    var createItemWithMaterialIcon = function (icon, text) {
+                        var a = document.createElement('a');
+                        var table = document.createElement('table');
+                        var tr = document.createElement('tr');
+                        var td1 = document.createElement('td');
+                        var td2 = document.createElement('td');
+                        var span = document.createElement('span');
+                        $(td1)
+                            .css('padding', '0 5px 0 0')
+                            .append(span);
+                        $(td2)
+                            .html(text);
+                        $(tr)
+                            .append(td1)
+                            .append(td2);
+                        $(table)
+                            .append(tr);
+                        $(a)
+                            .attr('class', 'list-group-item')
+                            .attr('href', 'javascript:void(0);')
+                            .append(table);
+                        $(span)
+                            .html(icon)
+                            .attr('class', 'material-icons');
+                        return a;
+                    };
+                    var cancelButton = createItemWithMaterialIcon('cancel', 'Cancel');
+                    var icons = service.syncMethods.getTravelModeIcons();
+                    for(var i = 0; i < icons.length; i++){
+                        var icon = icons[i];
+                        var optionButton = createItemWithMaterialIcon(icon.materialIcon, icon.name);
+                        $(optionButton)
+                            .data('googleConstant', icon.googleConstant)
+                            .on('click', function () {
+                                result = $(this).data('googleConstant');
+                                $(modal).modal('hide');
+                            });
+                        $(listGroup).append(optionButton);
+                    }
+                    $(cancelButton).on('click', function () {
+                        $(modal).modal('hide');
+                    });
+                    $(listGroup)
+                        .attr('class', 'list-group')
+                        .append(cancelButton);
+                    $(body)
+                        .append(listGroup);
+                },
+                getSpriteIcon: function (name, color, size) {
+                    //must be initialized!
+                    var sprite_src = 'assets/images/map/.... image here!';
+                    var original_image_size = {width: 370, height: 424};
+                    var image_count = {x: 5, y: 4};
+                    var default_size = 45;
+
+
+                    //let the magic begin.
+                    var image_size = new google.maps.Size(((size || default_size)/100) * original_image_size.width, ((size || default_size)/100) * original_image_size.height);
+                    var sprite_size = new google.maps.Size(image_size.width/image_count.x, image_size.height/image_count.y);
+
+                    //column names
+                    var colors = {//aka x-axis
+                        green: 0,
+                        red: (sprite_size.width * 1),
+                        blue: (sprite_size.width * 2),
+                        gray: (sprite_size.width * 3),
+                        orange: (sprite_size.width * 4)
+                    };
+
+                    //row names
+                    var names = { //aka y-axis
+                        doctor: 0,
+                        m_user: (sprite_size.height * 1),
+                        f_user: (sprite_size.height * 2),
+                        clinic: (sprite_size.height * 3)
+                    };
+
+                    //validate inputs
+                    if(Object.keys(colors).indexOf(color) < 0) color = 'blue';
+                    if(Object.keys(names).indexOf(name) < 0) name = 'm_user';
+
+                    //icon object
+                    return {
+                        labelOrigin: new google.maps.Point(0,0),
+                        origin: new google.maps.Point(colors[color],names[name]),
+                        scaledSize: image_size,
+                        size: sprite_size,
+                        url: sprite_src
+                    }
                 }
             },
             asyncMethods: {
@@ -279,6 +404,85 @@ angular.module('mapService', [])
 
                     //set to map
                     options.map.controls[google.maps.ControlPosition[options.position]].push(alertControl.element);
+                },
+                locationControl: function (options, callback) {
+                    var locationControl = this;
+                    var follow = false;
+
+                    //callback
+                    callback = callback || function () {};
+
+                    //options
+                    options = options || {};
+                    options.map = options.map || {};
+                    options.markerOptions = options.markerOptions || {};
+                    options.position = options.position || 'RIGHT_BOTTOM';
+                    options.innerHtml = options.innerHtml || 'my_location';
+                    options.className = options.className || 'material-icons';
+
+                    //element
+                    this.element = document.createElement('span');
+                    locationControl.element.style.borderRadius = '2px';
+                    locationControl.element.style.width = '28px';
+                    locationControl.element.style.height = '28px';
+                    locationControl.element.style.cursor = 'pointer';
+                    locationControl.element.style.backgroundColor = 'white';
+                    locationControl.element.style.margin = '0 10px';
+                    locationControl.element.style.justifyContent = 'center';
+                    locationControl.element.style.alignItems = 'center';
+                    locationControl.element.style.fontSize = 'large';
+                    locationControl.element.style.display = 'none';
+                    locationControl.element.innerHTML = options.innerHtml;
+                    locationControl.element.className = options.className;
+                    locationControl.element.addEventListener('click', followLocation);
+
+                    //map event
+                    options.map.addListener('dragstart', unfollowLocation);
+                    options.map.addListener('zoom_changed', unfollowLocation);
+
+                    //marker
+                    this.marker = new google.maps.Marker(options.markerOptions);
+                    locationControl.marker.setPosition(options.map.getCenter());
+
+                    //marker active
+                    this.active = false;
+
+                    //functions
+                    function renderMarker(position) {
+                        callback(null, position);
+                        var latLng = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
+                        locationControl.marker.setPosition(latLng);
+                        if(follow) options.map.setCenter(latLng);
+                        if(!locationControl.active){
+                            locationControl.element.style.display = 'flex';
+                            locationControl.marker.setMap(options.map);
+                            locationControl.active = true;
+                        }
+                    }
+                    function followLocation() {
+                        follow = true;
+                        locationControl.element.style.color = 'skyblue';
+                        options.map.setCenter(locationControl.marker.getPosition());
+                    }
+                    function unfollowLocation() {
+                        follow = false;
+                        locationControl.element.style.color = '';
+                    }
+
+                    //check saved current location
+                    if(locationCurrentPosition) renderMarker(locationCurrentPosition);
+
+                    //watch
+                    service.asyncMethods.watchUserLocation(function (err, position) {
+                        if(err) callback(err);
+                        else renderMarker(position);
+                    });
+
+                    //set to map
+                    options.map.controls[google.maps.ControlPosition[options.position]].push(locationControl.element);
                 }
             }
         };
