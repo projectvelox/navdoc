@@ -1,5 +1,7 @@
 angular.module('app', [
     'appRoute',
     'mainController',
-    'serverService'
+    'serverService',
+    'mapService',
+    'publicControllers'
 ]);

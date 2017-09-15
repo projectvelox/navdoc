@@ -5,7 +5,9 @@ angular.module('appRoute', ['ngRoute'])
 
             //PUBLIC
             .when('/', {
-                templateUrl: 'app/pages/public/home.html'
+                templateUrl: 'app/pages/public/home.html',
+                controller: 'homeCtrl',
+                controllerAs: 'home'
             })
 
             .otherwise({redirectTo: '/'});
