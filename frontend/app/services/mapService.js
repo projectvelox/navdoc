@@ -260,7 +260,7 @@ angular.module('mapService', [])
                     };
                     var getTravelModeMaterialIcon = function () {
                         var mode = directions.request.travelMode;
-                        var icons = service.getTravelModeIcons();
+                        var icons = service.syncMethods.getTravelModeIcons();
                         for(var i = 0; i < icons.length; i++){
                             var icon = icons[i];
                             if(icon.googleConstant == mode) return icon.materialIcon;

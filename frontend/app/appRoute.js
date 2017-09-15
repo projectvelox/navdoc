@@ -11,9 +11,9 @@ angular.module('appRoute', ['ngRoute'])
             })
 
             .when('/signup', {
-                templateUrl: 'app/pages/public/home.html',
-                controller: 'homeCtrl',
-                controllerAs: 'home'
+                templateUrl: 'app/pages/public/signup.html',
+                controller: 'signupCtrl',
+                controllerAs: 'signup'
             })
 
             .when('/login', {
@@ -23,10 +23,9 @@ angular.module('appRoute', ['ngRoute'])
             })
 
             .when('/clinic-profile/:id', {
-                templateUrl: 'app/pages/public/clinic-profile.html'
-                //,
-                //controller: '',
-                //controllerAs: ''
+                templateUrl: 'app/pages/public/clinic-profile.html',
+                controller: 'clinicProfileCtrl',
+                controllerAs: 'clinicProfile'
             })
 
 

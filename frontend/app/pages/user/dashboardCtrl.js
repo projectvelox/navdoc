@@ -46,7 +46,7 @@ angular.module('userControllers')
                         travelMode: mode
                     },function (err, result) {
                         if(err) Dialog.alert('No Route', 'Cannot get route. status: ' + err);
-                        else dashboard.directionRenderer.setDirections(result, marker.data);
+                        else dashboard.directionRenderer.setDirections(result);
                         preloader.destroy();
                     });
                 }
@@ -81,7 +81,7 @@ angular.module('userControllers')
 
             //name
             $($(template).find('.name')).html(marker.data.name);
-            $($(template).find('.name')).attr('href', '#/users/clinic-profile/marker.data.uid');
+            $($(template).find('.name')).attr('href', '#/clinic-profile/' + marker.data.uid);
 
             $($(template).find('.address')).html(marker.data.address);
             $($(template).find('.contact')).html(marker.data.contact_number);
@@ -89,7 +89,7 @@ angular.module('userControllers')
             for(var i = 0; i < marker.data.doctors.length; i++){
                 var doctor = marker.data.doctors[i];
                 $($(template).find('.doctors'))
-                    .append('<li><a href="#/users/doctor-profile/123">' + doctor.username + '</a> (' + doctor.specialty + ')</li>')
+                    .append('<li><a href="#/user/doctor-profile/' + doctor.uid + '">' + doctor.username + '</a> (' + doctor.specialty + ')</li>')
             }
 
             //get direction button
