@@ -52,10 +52,10 @@ angular.module('appRoute', ['ngRoute'])
             })
 
             .when('/user/appointment-history', {
-                templateUrl: 'app/pages/user/appointment-history.html'
-                //,
-                //controller: '',
-                //controllerAs: ''
+                templateUrl: 'app/pages/user/appointment-history.html',
+                controller: 'userAppointmentHistoryCtrl',
+                controllerAs: 'userAppointmentHistory',
+                allowedUsers: ['user']
             })
 
             .when('/user/dashboard', {
