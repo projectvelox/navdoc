@@ -52,17 +52,19 @@
 							<table class="table table-striped">
 								<tr>
 									<th>#</th>
-									<th>Clinic Name</th>
+									<th>Avatar</th>
 									<th>Doctor</th>
 									<th>Specialization</th>
+									<th>Clinic Name</th>
 									<th>Action</th>
 								</tr>
 								<tr ng-repeat="name in [0, 1, 2, 3, 4, 5] track by $index">
 									<td>{{($index + 1)}}</td>
-									<td>Happy Clinic</td>
+									<td><img src="http://lorempixel.com/50/50/people"></td>
 									<td>Ariessa Lane Ko</td>
 									<td>Cardiology</td>
-									<td><a href="#" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-option-horizontal"></span></a></td>
+									<td>Happy Clinic</td>
+									<td><a href="#/admin/doctor-profile/2" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-option-horizontal"></span></a></td>
 								</tr>
 							</table>
 						</div>
