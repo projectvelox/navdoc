@@ -9,85 +9,38 @@
                         <table class="table">
                             <tr>
                                 <th>#</th>
-                                <th>Avatar</th>
                                 <th>Name</th>
                                 <th>Status</th>
+                                <th>Action</th>
                             </tr>
                             <tr>
                                 <td>1</td>
-                                <td><img src="http://lorempixel.com/50/50/people"></td>
                                 <td>Joshua Oducado</td>
                                 <td><span class="label label-success">Now Serving</span></td>
+                                <td>
+                                    <div class="btn-group">
+                                      <a href="#" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-ok"></span></a>
+                                      <a data-target="#reschedule" data-toggle="modal" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-share-alt"></span></a>
+                                      <a href="#/admin/doctor-profile/2" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-option-horizontal"></span></a>
+                                    </div>
+                                </td>
                             </tr>
                             <tr ng-repeat="name in [0, 1, 2, 3, 4, 5] track by $index">
                                     <td>{{($index + 2)}}</td>
-                                    <td><img src="http://lorempixel.com/50/50/people"></td>
                                     <td>John Prehistoric Chihua</td>
-                                    <td><span class="label label-success">Now Serving</span></td>
+                                    <td><span class="label label-default">In Queue</span></td>
+                                    <td>
+                                    <div class="btn-group">
+                                      <a href="#" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-ok"></span></a>
+                                      <a data-target="#reschedule" data-toggle="modal" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-share-alt"></span></a>
+                                      <a href="#/admin/doctor-profile/2" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-option-horizontal"></span></a>
+                                    </div>
+                                </td>
                                 </tr>
                         </table>
                     </div>
                 </div>
             </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <i class="fa fa-bar-chart-o fa-fw"></i> Activity Logs
-                        <div class="pull-right">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                    Actions
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu pull-right" role="menu">
-                                    <li><a href="#">Action</a>
-                                    </li>
-                                    <li><a href="#">Another action</a>
-                                    </li>
-                                    <li><a href="#">Something else here</a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">Separated link</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.panel-heading -->
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered table-hover table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Date</th>
-                                                <th>Time</th>
-                                                <th>Amount</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>3326</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:29 PM</td>
-                                                <td>$321.33</td>
-                                            </tr>
-                                            
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- /.table-responsive -->
-                            </div>
-                            <!-- /.col-lg-4 (nested) -->
-                            <div class="col-lg-8">
-                                <div id="morris-bar-chart"></div>
-                            </div>
-                            <!-- /.col-lg-8 (nested) -->
-                        </div>
-                        <!-- /.row -->
-                    </div>
-                    <!-- /.panel-body -->
         </div>
     </div>
 </div>
@@ -164,6 +117,38 @@
                         </table>
                     </a>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--select route modal-->
+<div class="modal fade" id="reschedule">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Reschedule Joshua's Appointment</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Purpose</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" type="text" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Schedule</label>
+                        <div class="col-sm-10">
+                            <input type="date" class="form-control" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-sm btn-primary">Create Appointment</button>
+                <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
