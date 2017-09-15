@@ -11,8 +11,8 @@ angular.module('appRoute', ['ngRoute'])
             })
 
             .when('/signup', {
-                templateUrl: 'app/pages/public/home.html',
-                controller: 'homeCtrl',
+                templateUrl: 'app/pages/public/signup.html',
+                controller: 'signupCtrl',
                 controllerAs: 'home'
             })
 
@@ -83,6 +83,13 @@ angular.module('appRoute', ['ngRoute'])
 
             .when('/user/clinic-list', {
                 templateUrl: 'app/pages/user/clinic-list.html'
+                //,
+                //controller: '',
+                //controllerAs: ''
+            })
+
+            .when('/user/user-details', {
+                templateUrl: 'app/pages/user/user-details.html'
                 //,
                 //controller: '',
                 //controllerAs: ''
