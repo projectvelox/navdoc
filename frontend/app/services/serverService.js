@@ -1,6 +1,6 @@
 angular.module('serverService', [])
     .factory('serverSv', function ($http) {
-        var host = 'http://10.10.10.72:2162';
+        var host = 'http://10.10.10.54:2162';
         var service = {
             getHost: function () {
                 return host;
