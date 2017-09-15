@@ -34,20 +34,7 @@ angular.module('appRoute', ['ngRoute'])
 
 
             //USERS
-            .when('/user/dashboard', {
-                templateUrl: 'app/pages/user/dashboard.html'
-                //,
-                //controller: '',
-                //controllerAs: ''
-            })
-            .when('/user/feedback', {
-                templateUrl: 'app/pages/user/feedback.html'
-                //,
-                //controller: '',
-                //controllerAs: ''
-            })
-
-            .when('/user/appointment/:', {
+            .when('/user/appointment/:id', {
                 templateUrl: 'app/pages/user/appointment.html'
                 //,
                 //controller: '',
@@ -61,8 +48,30 @@ angular.module('appRoute', ['ngRoute'])
                 //controllerAs: ''
             })
 
+            .when('/user/dashboard', {
+                templateUrl: 'app/pages/user/dashboard.html'
+                //,
+                //controller: '',
+                //controllerAs: ''
+            })
+
             .when('/user/doctor-profile/:id', {
                 templateUrl: 'app/pages/user/doctor-profile.html'
+                //,
+                //controller: '',
+                //controllerAs: ''
+            })
+
+
+            .when('/user/feedback', {
+                templateUrl: 'app/pages/user/feedback.html'
+                //,
+                //controller: '',
+                //controllerAs: ''
+            })
+            
+            .when('/user/profile', {
+                templateUrl: 'app/pages/user/profile.html'
                 //,
                 //controller: '',
                 //controllerAs: ''
