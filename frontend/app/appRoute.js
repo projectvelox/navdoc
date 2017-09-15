@@ -87,5 +87,20 @@ angular.module('appRoute', ['ngRoute'])
                 //controllerAs: ''
             })
 
+            .when('/user/user-details', {
+                templateUrl: 'app/pages/user/user-details.html'
+                //,
+                //controller: '',
+                //controllerAs: ''
+            })
+
+            //DOCTORS
+            .when('/doctor/user-details', {
+                templateUrl: 'app/pages/doctor/user-details.html'
+                //,
+                //controller: '',
+                //controllerAs: ''
+            })
+
             .otherwise({redirectTo: '/'});
     });

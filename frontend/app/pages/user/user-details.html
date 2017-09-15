@@ -1,0 +1,51 @@
+<div class="container pt-3 pb-5">
+	<h1>Complete User Details</h1>
+	<small>Please fill up the following fields to complete the registration</small><hr>
+	<div class="row ">
+		<div class="col-xs-12 col-md-8">
+			<h4>User Info</h4>
+			 <form class="form-horizontal" ng-submit="signup.submitForm();">
+			 	<div class="form-group">
+                    <label class="control-label col-sm-2" for="birthdate">Name:</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" id="birthdate" placeholder="Enter your name (Lastname, Firstname, Middlename)"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="birthdate">Birthdate:</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="date" id="birthdate" placeholder=""/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="gender">Gender:</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="gender">
+                            <option selected disabled>Select an option below</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="address">Address:</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" rows="5" id="address" placeholder="Enter your address"></textarea>
+                    </div>
+                </div>
+                <hr><h4>Contact Info</h4>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="phone_number">Number:</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" id="phone_number" placeholder="Enter your phone number"/>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary pull-right">Submit</button>
+            </form>
+		</div>
+		<div class="col-xs-12 col-md-4">
+			<h3>Almost There!</h3>
+			<small>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</small>
+		</div>
+	</div>
+</div>
