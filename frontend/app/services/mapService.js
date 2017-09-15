@@ -532,6 +532,12 @@ angular.module('mapService', [])
                         .on('submit', function () {
                             searchCallback($(elements.input).val());
                         });
+
+                    //methods
+                    this.clear = function () {
+                        $(elements.input).val('');
+                    };
+
                     options.map.controls[google.maps.ControlPosition[options.position]].push(elements.form);
                 }
             }

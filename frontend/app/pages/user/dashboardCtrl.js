@@ -114,28 +114,33 @@ angular.module('userControllers')
                 dashboard.map.fitBounds(mapSv.syncMethods.getBoundsFromPath(path));
         };
         dashboard.search = function (keyword) {
-            var preloader = new Dialog.preloader('Searching for clinics');
-            serverSv.request('/clinic/search',{
-                method: 'POST',
-                data: {
-                    name: keyword,
-                    address: keyword
-                }
-            }).then(function (response) {
-                var data = response.data;
-                if(data.error) Dialog.alert('Unable Get Data', data.error[1]);
-                else {
-                    dashboard.clinics = data;
-                    dashboard.clearClinicMarkers();
-                    dashboard.renderClinics();
-                    dashboard.fitResultBounds();
-                }
-            }).catch(function (err) {
-                Dialog.alert('Unable Get Data', 'An unknown error occurred');
-                throw err;
-            }).finally(function () {
-                preloader.destroy();
-            });
+            if(keyword.trim() == ''){
+                Dialog.alert('Please enter a keyword to search.');
+            } else {
+                var preloader = new Dialog.preloader('Searching for clinics');
+                serverSv.request('/clinic/search',{
+                    method: 'POST',
+                    data: {
+                        query: keyword
+                    }
+                }).then(function (response) {
+                    var data = response.data;
+                    if(data.error) Dialog.alert('Unable Get Data', data.error[1]);
+                    else {
+                        dashboard.clinics = data;
+                        dashboard.clearClinicMarkers();
+                        dashboard.renderClinics();
+                        dashboard.fitResultBounds();
+                        dashboard.searchBoxControl.clear();
+                        dashboard.alertControl.show(data.length + ' result/s');
+                    }
+                }).catch(function (err) {
+                    Dialog.alert('Unable Get Data', 'An unknown error occurred');
+                    throw err;
+                }).finally(function () {
+                    preloader.destroy();
+                });
+            }
         };
 
         //initialize
