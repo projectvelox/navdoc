@@ -4,7 +4,10 @@ angular.module('userControllers')
         userProfile.loading = false;
         userProfile.profile = {};
         userProfile.pendingAppointments = [];
-        userProfile.doneAppointments = [];
+        userProfile.upcomingAppointments = [];
+        userProfile.convertDate = function (d) {
+            return new Date(d);
+        };
 
         userProfile.loadProfile = function (callback) {
             serverSv.auth.me()
@@ -32,12 +35,12 @@ angular.module('userControllers')
                     callback();
                 });
         };
-        userProfile.loadDoneAppointments = function (callback) {
-            serverSv.request('/appointment/get/done')
+        userProfile.loadUpcomingAppointments = function (callback) {
+            serverSv.request('/appointment/get/approved')
                 .then(function (response) {
                     var data = response.data;
                     if(data.error) Dialog.alert('Cannot Get Data', data.error[1]);
-                    else userProfile.doneAppointments = data;
+                    else userProfile.upcomingAppointments = data;
                 }).catch(function (err) {
                     Dialog.alert('Cannot Get Data', 'An unknown error occurred');
                     $location.path('/');
@@ -50,7 +53,7 @@ angular.module('userControllers')
             userProfile.loading = true;
             userProfile.loadProfile(function () {
                 userProfile.loadPendingAppointments(function () {
-                    userProfile.loadDoneAppointments(function () {
+                    userProfile.loadUpcomingAppointments(function () {
                         userProfile.loading = false;
                     });
                 });

@@ -3,6 +3,9 @@ angular.module('userControllers')
         var userAppointmentHistory = this;
         userAppointmentHistory.loading = false;
         userAppointmentHistory.doneAppointments = [];
+        userAppointmentHistory.convertDate = function (d) {
+            return new Date(d);
+        };
 
         userAppointmentHistory.init = function () {
             userAppointmentHistory.loading = true;

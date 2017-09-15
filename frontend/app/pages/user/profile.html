@@ -109,9 +109,9 @@
                                     </tr>
                                     <tr ng-repeat="appointment in userProfile.pendingAppointments track by $index">
                                         <td>{{($index + 1)}}</td>
-                                        <td><a href="#/clinic-profile/1">Happy Clinic</a></td>
-                                        <td><a href="#/user/doctor-profile/2">Dr. Ariessa Lane Chua Ko</a></td>
-                                        <td>September 18, 2017</td>
+                                        <td><a href="#/clinic-profile/{{appointment.doctor.clinic.uid}}">{{appointment.doctor.clinic.name}}</a></td>
+                                        <td><a href="#/user/doctor-profile/{{appointment.doctor.uid}}">{{appointment.doctor.username}}</a></td>
+                                        <td>{{userProfile.convertDate(appointment.date) | date : format : timezone}}</td>
                                     </tr>
                                 </table>
                             </div>
@@ -133,7 +133,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-md-8">
-                            <div class="table-responsive" ng-show="userProfile.doneAppointments.length > 0">
+                            <div class="table-responsive" ng-show="userProfile.upcomingAppointments.length > 0">
                                 <table class="table">
                                     <tr>
                                         <th>#</th>
@@ -141,21 +141,21 @@
                                         <th>Doctor</th>
                                         <th>Appointment Date</th>
                                     </tr>
-                                    <tr ng-repeat="appointment in userProfile.doneAppointments track by $index">
+                                    <tr ng-repeat="appointment in userProfile.upcomingAppointments track by $index">
                                         <td>{{($index + 1)}}</td>
-                                        <td><a href="#/clinic-profile/1">Happy Clinic</a></td>
-                                        <td><a href="#/user/doctor-profile/2">Dr. Ariessa Lane Chua Ko</a></td>
-                                        <td>September 18, 2017</td>
+                                        <td><a href="#/clinic-profile/{{appointment.doctor.clinic.uid}}">{{appointment.doctor.clinic.name}}</a></td>
+                                        <td><a href="#/user/doctor-profile/{{appointment.doctor.uid}}">{{appointment.doctor.username}}</a></td>
+                                        <td>{{appointment.date}}</td>
                                     </tr>
                                 </table>
                             </div>
-                            <p class="text-center" ng-hide="userProfile.doneAppointments.length > 0">No Appointment History</p>
+                            <p class="text-center" ng-hide="userProfile.upcomingAppointments.length > 0">No Upcoming Appointment</p>
                         </div>
                         <div class="col-xs-12 col-md-4">
                             <div class="doctor-bordify doctor-bg-white text-center" style="border: 1px solid #d2d2d2; margin-top: 0px; padding: 10px;">
                                 <h2>Appointments</h2>
                                 <small>(Number of Appointments)</small>
-                                <h1>{{userProfile.doneAppointments.length}}</h1>
+                                <h1>{{userProfile.upcomingAppointments.length}}</h1>
                             </div>
                         </div>
                     </div>

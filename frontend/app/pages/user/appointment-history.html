@@ -78,10 +78,10 @@
                         </tr>
                         <tr ng-repeat="appointment in userAppointmentHistory.doneAppointments track by $index">
                             <td>{{($index + 1)}}</td>
-                            <td><a href="#/clinic-profile/1">Happy Clinic</a></td>
-                            <td><a href="#/user/doctor-profile/2">Dr. Ariessa Lane Chua Ko</a></td>
-                            <td>September 18, 2017 1:00PM</td>
-                            <td><a href="#/user/appointment/1" class="btn btn-primary btn-sm">Check</a></td>
+                            <td><a href="#/clinic-profile/{{appointment.doctor.clinic.uid}}">{{appointment.doctor.clinic.name}}</a></td>
+                            <td><a href="#/user/doctor-profile/{{appointment.doctor.uid}}">{{appointment.doctor.username}}</a></td>
+                            <td>{{userAppointmentHistory.convertDate(appointment.date) | date : format : timezone}}</td>
+                            <td><a href="#/user/appointment/{{appointment.uid}}" class="btn btn-primary btn-sm">Check</a></td>
                         </tr>
                     </table>
                 </div>
