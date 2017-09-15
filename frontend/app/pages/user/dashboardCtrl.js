@@ -114,9 +114,8 @@ angular.module('userControllers')
                 dashboard.map.fitBounds(mapSv.syncMethods.getBoundsFromPath(path));
         };
         dashboard.search = function (keyword) {
-            if(keyword.trim() == ''){
-                Dialog.alert('Please enter a keyword to search.');
-            } else {
+            if(keyword.trim() == '')Dialog.alert('No keyword', 'Please enter a keyword to search.');
+            else {
                 var preloader = new Dialog.preloader('Searching for clinics');
                 serverSv.request('/clinic/search',{
                     method: 'POST',
