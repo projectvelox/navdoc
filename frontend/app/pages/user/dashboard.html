@@ -27,36 +27,19 @@
 				</div></a>
 			</div>
 		</div>
-		<div class="col-xs-12 col-md-7" ng-hide="false">
+		<div class="col-xs-12 col-md-7" ng-show="dashboard.clinics.length > 0">
 			<h3>Search Results</h3><hr>
 			<div class="row">
-				<div class="col-xs-12 col-md-6">
+				<div class="col-xs-12 col-md-6" ng-repeat="clinic in dashboard.clinics track by $index">
 					<div class="panel panel-default">
 						<div class="panel-heading">
 					  		<div class="row"> 
-								<div class="col-xs-10 col-md-10"><strong>Happy Clinic</strong></div>
-						  		<div class="col-xs-2 col-md-2"><a href="#/clinic-profile/2"><span class="glyphicon glyphicon-menu-right"></span></a></div>
+								<div class="col-xs-10 col-md-10"><strong>{{clinic.name}}</strong></div>
+						  		<div class="col-xs-2 col-md-2"><a href="#/clinic-profile/{{clinic.uid}}"><span class="glyphicon glyphicon-menu-right"></span></a></div>
 					  		</div>					  	
 					  	</div>
 					  	<div class="panel-body">
-					  		<p><strong>Province</strong> Iloilo</p>
-					  		<p><strong>City</strong> Iloilo City</p>
-					  		<p><strong>Address</strong> Half Moon Dr, Lopez, Iloilo City, 5000 Iloilo 123-1234-123</p>
-					  </div>
-					</div>
-				</div>
-				<div class="col-xs-12 col-md-6">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<div class="row"> 
-						  		<div class="col-xs-10 col-md-10"><strong>Happy Clinic</strong></div>
-						  		<div class="col-xs-2 col-md-2"><a href="#/clinic-profile/2"><span class="glyphicon glyphicon-menu-right"></span></a></div>
-					  		</div>
-					  	</div>
-					  	<div class="panel-body">
-					  		<p><strong>Province</strong> Iloilo</p>
-					  		<p><strong>City</strong> Iloilo City</p>
-					  		<p><strong>Address</strong> Half Moon Dr, Lopez, Iloilo City, 5000 Iloilo 123-1234-123</p>
+					  		<p><strong>Address</strong> {{clinic.address}}</p>
 					  </div>
 					</div>
 				</div>
