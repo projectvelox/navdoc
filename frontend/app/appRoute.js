@@ -90,7 +90,8 @@ angular.module('appRoute', ['ngRoute'])
             .when('/user/transaction-logs', {
                 templateUrl: 'app/pages/user/transaction-logs.html',
                 controller: 'userTransactionLogsCtrl',
-                controllerAs: 'transactions'
+                controllerAs: 'transactions',
+                allowedUsers: ['user']
             })
 
             .when('/user/clinic-list', {
@@ -111,26 +112,29 @@ angular.module('appRoute', ['ngRoute'])
             .when('/user/appointments/pending', {
                 templateUrl: 'app/pages/user/appointments/pending.html',
                 controller: 'userPendingAppointmentsCtrl',
-                controllerAs: 'appointments'
+                controllerAs: 'appointments',
+                allowedUsers: ['user']
             })
 
             .when('/user/appointments/upcoming', {
                 templateUrl: 'app/pages/user/appointments/upcoming.html',
                 controller: 'userUpcomingAppointmentsCtrl',
-                controllerAs: 'appointments'
+                controllerAs: 'appointments',
+                allowedUsers: ['user']
             })
 
             .when('/user/appointments/history', {
                 templateUrl: 'app/pages/user/appointments/history.html',
                 controller: 'userHistoryAppointmentsCtrl',
-                controllerAs: 'appointments'
+                controllerAs: 'appointments',
+                allowedUsers: ['user']
             })
 
             .when('/user/appointments/profile/:id', {
-                templateUrl: 'app/pages/user/appointments/profile.html'
-                //,
-                //controller: '',
-                //controllerAs: ''
+                templateUrl: 'app/pages/user/appointments/profile.html',
+                controller: 'userAppointmentProfileCtrl',
+                controllerAs: 'appointment',
+                allowedUsers: ['user']
             })
 
             .when('/user/settings', {
@@ -143,41 +147,46 @@ angular.module('appRoute', ['ngRoute'])
 
             //DOCTORS
             .when('/doctor/dashboard', {
-                templateUrl: 'app/pages/doctor/dashboard.html'
-                //,
+                templateUrl: 'app/pages/doctor/dashboard.html',
                 //controller: '',
-                //controllerAs: ''
+                //controllerAs: '',
+                allowedUsers: ['doctor']
             })
 
             .when('/doctor/appointment/requests', {
                 templateUrl: 'app/pages/doctor/appointmentRequests.html',
                 controller: 'doctorAppointmentRequestsCtrl',
-                controllerAs: 'appointmentRequests'
+                controllerAs: 'appointmentRequests',
+                allowedUsers: ['doctor']
             })
 
             .when('/doctor/appointment/upcoming', {
                 templateUrl: 'app/pages/doctor/appointmentUpcoming.html',
                 controller: 'doctorAppointmentUpcomingCtrl',
-                controllerAs: 'appointmentUpcoming'
+                controllerAs: 'appointmentUpcoming',
+                allowedUsers: ['doctor']
             })
 
             .when('/doctor/appointment/history', {
                 templateUrl: 'app/pages/doctor/appointmentHistory.html',
                 controller: 'doctorAppointmentHistoryCtrl',
-                controllerAs: 'appointmentHistory'
+                controllerAs: 'appointmentHistory',
+                allowedUsers: ['doctor']
             })
 
             .when('/doctor/transactions', {
                 templateUrl: 'app/pages/doctor/transactions.html',
                 controller: 'doctorTransactionsCtrl',
-                controllerAs: 'transactions'
+                controllerAs: 'transactions',
+                allowedUsers: ['doctor']
             })
 
             .when('/doctor/settings', {
-                templateUrl: 'app/pages/doctor/settings.html'
+                templateUrl: 'app/pages/doctor/settings.html',
                 //,
                 //controller: '',
-                //controllerAs: ''
+                //controllerAs: '',
+                allowedUsers: ['doctor']
             })
 
             .otherwise({redirectTo: '/'});

@@ -8,7 +8,7 @@
     <h2>Appointment History</h2><hr>
     <div class="col-xs-12 col-md-6">
         <div class="list-group">
-            <a href="" class="list-group-item" ng-repeat="appointment in appointments.list track by $index">
+            <a href="#/user/appointments/profile/{{appointment.uid}}" class="list-group-item" ng-repeat="appointment in appointments.list track by $index">
                 <strong>{{appointment.doctor.username}}</strong> - {{appointments.convertDate(appointment.date[appointment.date.length - 1]) | date : format : timezone}}
                 <span class="badge"><span class="glyphicon glyphicon-option-horizontal"></span></span>
             </a>

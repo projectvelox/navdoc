@@ -12,7 +12,8 @@ angular.module('mapService', [])
                 getDefaultMapOptions: function () {
                     return {
                         center: {lat: 10.7242516, lng: 122.5571539},
-                        zoom: 14
+                        zoom: 14,
+                        mapTypeControl: false
                     };
                 },
                 getTravelModeIcons: function () {
@@ -487,7 +488,7 @@ angular.module('mapService', [])
                 searchBoxControl: function (options, searchCallback) {
                     options = options || {};
                     options.map = options.map || {};
-                    options.position = options.position || 'TOP_LEFT';
+                    options.position = options.position || 'LEFT_TOP';
                     options.placeholder = options.placeholder || 'Search';
                     searchCallback = searchCallback || function () {};
 
@@ -528,7 +529,7 @@ angular.module('mapService', [])
                         .append(elements.inputGroup)
                         .css('margin', '10px')
                         .css('width', '50vh')
-                        .css('min-width', '250px')
+                        .css('min-width', '300px')
                         .on('submit', function () {
                             searchCallback($(elements.input).val());
                         });

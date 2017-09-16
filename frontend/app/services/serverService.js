@@ -1,6 +1,6 @@
 angular.module('serverService', [])
     .factory('serverSv', function ($http) {
-        var host = 'http://10.10.10.54:2162';
+        var host = 'https://7af3b794.ngrok.io';//'http://10.10.10.54:2162';
         var service = {
             getHost: function () {
                 return host;
@@ -10,7 +10,7 @@ angular.module('serverService', [])
                 config.url = host + path;
                 config.method = config.method || 'GET';
                 config.responseType = config.responseType || 'json';
-                config.timeout = config.timeout || 30000;
+                //config.timeout = config.timeout || 30000;
                 config.headers = config.headers || {
                     'Content-Type': 'application/json',
                     'Session-Token': service.auth.key()
